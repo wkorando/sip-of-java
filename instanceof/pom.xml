@@ -9,11 +9,11 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>soj-switch-expression</artifactId>
-	<name>soj-switch-expression</name>
+	<artifactId>soj-instanceof</artifactId>
+	<name>soj-instanceof</name>
 	<packaging>jar</packaging>
 
-	<description>Demonstrating Switch Expressions</description>
+	<description>Demonstrating instanceof</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.bk.soj</groupId>
-	<artifactId>shot-of-java-parent</artifactId>
-	<name>shot-of-java-parent</name>
+	<artifactId>sip-of-java-parent</artifactId>
+	<name>sip-of-java-parent</name>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 

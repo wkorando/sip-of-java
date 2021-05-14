@@ -27,14 +27,14 @@ The above can be expressed more succinctly, and less error prone, with a switch 
 
 ```
 switch (args[0]) {
-case "1" -> System.out.println("Sunday");
-case "2" -> System.out.println("Monday");
-case "3" -> System.out.println("Tuesday");
-case "4" -> System.out.println("Wednesday");
-case "5" -> System.out.println("Thursday");
-case "6" -> System.out.println("Friday");
-case "7" -> System.out.println("Saturday");
-default -> System.out.println("Invalid selection, valid choices 1-7");
+	case "1" -> System.out.println("Sunday");
+	case "2" -> System.out.println("Monday");
+	case "3" -> System.out.println("Tuesday");
+	case "4" -> System.out.println("Wednesday");
+	case "5" -> System.out.println("Thursday");
+	case "6" -> System.out.println("Friday");
+	case "7" -> System.out.println("Saturday");
+	default -> System.out.println("Invalid selection, valid choices 1-7");
 }
 ``` 
 
@@ -44,14 +44,14 @@ A switch expression can also return a value:
 
 ```
 String result = switch (args[0]) {
-case "1" -> "Sunday";
-case "2" -> "Monday";
-case "3" -> "Tuesday";
-case "4" -> "Wednesday";
-case "5" -> "Thursday";
-case "6" -> "Friday";
-case "7" -> "Saturday";
-default -> "Invalid Choice";
+	case "1" -> "Sunday";
+	case "2" -> "Monday";
+	case "3" -> "Tuesday";
+	case "4" -> "Wednesday";
+	case "5" -> "Thursday";
+	case "6" -> "Friday";
+	case "7" -> "Saturday";
+	default -> "Invalid Choice";
 };
 	
 System.out.println(result);
@@ -63,17 +63,17 @@ A case can also be expressed in a code block if multiple statements need to be e
 
 ```
 String result = switch (args[0]) {
-case "1" -> "Sunday";
-case "2" -> "Monday";
-case "3" -> "Tuesday";
-case "4" -> "Wednesday";
-case "5" -> "Thursday";
-case "6" -> "Friday";
-case "7" -> "Saturday";
-default -> {
-	System.out.println("Invalid selection, valid choices 1-7");
-	yield "Invalid Choice";
-}
+	case "1" -> "Sunday";
+	case "2" -> "Monday";
+	case "3" -> "Tuesday";
+	case "4" -> "Wednesday";
+	case "5" -> "Thursday";
+	case "6" -> "Friday";
+	case "7" -> "Saturday";
+	default -> {
+		System.out.println("Invalid selection, valid choices 1-7");
+		yield "Invalid Choice";
+	}
 };
 ```
 
@@ -90,7 +90,7 @@ default -> {
 
 ### Exhaustiveness and enums 
 
-A switch expression must be exhaustive. In most cases this will mean a `default` case must be defined for the expression. However in the below example using a `enum` a default case is not required as ever enum value has a case mapped to it:
+A switch expression must be exhaustive. In most cases this will mean a `default` case must be defined for the expression. However in the below example using a `enum` a default case is not required as every enum value has has been mapped to a case:
 
 ```
 enum DaysOfWeek {
@@ -101,15 +101,17 @@ public static void main(String[] args) {
 	
 	DaysOfWeek dayOfWeek = DaysOfWeek.SUNDAY;
 	String result = switch (dayOfWeek) {
-	case SUNDAY -> "Sunday";
-	case MONDAY -> "Monday";
-	case TUESDAY -> "Tuesday";
-	case WEDNESDAY -> "Wednesday";
-	case THURSDAY -> "Thursday";
-	case FRIDAY -> "Friday";
-	case SATURDAY -> "Saturday";
+		case SUNDAY -> "Sunday";
+		case MONDAY -> "Monday";
+		case TUESDAY -> "Tuesday";
+		case WEDNESDAY -> "Wednesday";
+		case THURSDAY -> "Thursday";
+		case FRIDAY -> "Friday";
+		case SATURDAY -> "Saturday";
 	};
 	
 	System.out.println(result);
 }
 ```
+
+Happy Coding!
