@@ -1,22 +1,23 @@
 # Instanceof Pattern Matching
 
-Instanceof Pattern Matching, added in JDK 15 ([JEP 394](https://openjdk.java.net/jeps/394)), was added to help address the common issue when using the instance of operator of the test, assign, convert:
+Instanceof Pattern Matching, added in JDK 15 ([JEP 394](https://openjdk.java.net/jeps/394)), was added to help address the common idiom when using the `instanceof` operator of test, assign, convert:
 
 ```
 Object actuallyAString = "I'm actually a string!";
 	
-if(actuallyAString instanceof String) {
-	String nowImAString = (String) actuallyAString;
+if(actuallyAString instanceof String) {//Test if actuallyAString is a String
+	String nowImAString = //Assign actuallyAString to a variable
+	(String) actuallyAString; //Convert actuallyAString to a String
 	
 	System.out.println(nowImAString);
 }
 ```
 
-The above code, along with being verbose, creates opportunities for introduction of bugs in the code.
+The above code, along with being verbose, creates several opportunities for introduction of bugs in the code.
 
 ## Instanceof Pattern Matching
 
-Instanceof pattern matching address this issue by extending the instanceof operator to take a predicate and a pattern variable that will be assigned when the predicate is true:
+Instanceof pattern matching address this issue by extending the `instanceof` operator to take a predicate and a pattern variable that will be assigned when the predicate is true:
 
 ```
 		Object actuallyAString = "I'm actually a string!";
@@ -28,10 +29,12 @@ Instanceof pattern matching address this issue by extending the instanceof opera
 
 ## Flow Scope
 
-The pattern variable, in the below example `nowImAString`, is only in scope within the flow it was declared. For the below example `nowImAString` is only in scope within evaluation statement of the `if` statement and its corresponding code block, but out of scope outside of it. 
+The pattern variable, in these examples `nowImAString`, is only available within the _flow scope_ where it was declared. What this means in practice is that `nowImAString` is available everywhere where the compiler *definitely* knows its value has been assigned (i.e. everywhere where `actuallyAString instanceof` is `true`)
 
-The same variable name, `nowImAString`, can be reused later in the code file, but is only inscope within the evaluation statement.
 
+### Normal Use Cases
+
+Typically this will mean the pattern variable will be available in the evaluation block it was declared, and, if part of an `if` statement, the following code block, like in the below examples of an `if` statement and assigning a `boolean` value. 
 
 ```
 Object actuallyAString = "I'm actually a string!";
@@ -40,26 +43,28 @@ if(actuallyAString instanceof String nowImAString) {
 	System.out.println(nowImAString);
 }
 	
-System.out.println(nowImAString);
+System.out.println(nowImAString); //Compiler error, nowImAString not in scope
 	
 boolean isAString = (actuallyAString instanceof String nowImAString);
 
-System.out.println(nowImAString);
+System.out.println(nowImAString); //Compiler error, nowImAString not in scope
 ```
 
-## AND (&&) and OR (||) Operators
+### AND (&&) and OR (||) Operators
 
-A pattern variable would leave scope to the right of an OR `||` operator as the pattern variable may not had been assigned.
+However a pattern variable would leave scope to the right of an OR `||` operator as the pattern variable may not had been assigned:
 
 ```
 Object actuallyAString = "I'm actually a string!";
 	
-if(actuallyAString instanceof String nowImAString || nowImAString.endsWith("!")) {
+if(actuallyAString instanceof String nowImAString 
+	|| nowImAString.endsWith("!") //Compiler error, nowImAString not in scope after ||
+) {
 	System.out.println(nowImAString);
 }
 ```
 
-However a  pattern variable would still be in-scope to the right of an AND `&&` operator
+The pattern variable would still be in-scope thought to the right of an AND `&&` operator:
 
 ```
 Object actuallyAString = "I'm actually a string!";
@@ -69,9 +74,29 @@ if(actuallyAString instanceof String nowImAString && nowImAString.endsWith("!"))
 }
 ```		
 
-## Using a Value Outside of Flow Scope
+### Unusual Use Cases 
 
-To use a value outside of flowscope, it will need to be assigned to a variable of the scope that is appropriate for your application, like i nthe below example of assigning the variable `aString` the value of `nowImAString` within the `if` block: 
+There are some unusual ways to work with a pattern variable, like in the below examples of encapsulating `instanceof` in a NOT `!` so that the pattern variable can be referenced in an `else`, or throwing an exception in the body of the `if` so the pattern variable can be referenced outside of the evaluation and `if` code block.
+
+```
+Object actuallyAString = "I'm actually a string!";
+
+if (!(actuallyAString instanceof String nowImAString)) {
+//...
+} else {
+	System.out.println(nowImAString);
+}
+
+if (!(actuallyAString instanceof String nowImAString)) {
+	throw new IllegalArgumentException("Must be a string!");
+}
+
+System.out.println(nowImAString);
+```
+
+### Using the Value of a Pattern Variable Outside of Flow Scope
+
+To use value of a pattern variable outside of flow scope, it will need to be assigned to a variable of the scope that is appropriate for your needs, like in the below example of assigning the local variable `aString` the value of `nowImAString` within the `if` block: 
 
 ```
 Object actuallyAString = "I'm actually a string!";
