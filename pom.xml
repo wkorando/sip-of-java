@@ -11,6 +11,12 @@
 
 	<modules>
 		<module>switch-expression</module>
+		<module>instanceof</module>
+		<module>single-file</module>
+		<module>text-block</module>
+		<module>local-record</module>
+		<module>collection-factory</module>
+		<module>string-enhancements</module>
 	</modules>
 
 </project>
