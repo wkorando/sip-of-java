@@ -1,37 +1,15 @@
-## Welcome to GitHub Pages
+## Sip Of java
 
-You can use the [editor on GitHub](https://github.com/wkorando/sip-of-java/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Sip Of Java is a weekly ~1 minute long video covering a topic in Java. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## 001 - Switch Expressions 
 
-### Markdown
+Learn how switch expressions can be used to better handle _n_ path scenarios: [Link](001.md).
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## 002 - Pattern Matching for Instanceof
 
-```markdown
-Syntax highlighted code block
+Learn how the addition of pattern matching can greatly improve working with `instanceof`: [Link](002.md).
 
-# Header 1
-## Header 2
-### Header 3
+## 003 - Launch Single-File Source Code Applications
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/wkorando/sip-of-java/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Learn how to launch single-file source code applications with the `java` launcher: [Link](003.md)

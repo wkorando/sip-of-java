@@ -4,7 +4,7 @@ Text Blocks, added in Java 15 ([JEP 378](https://openjdk.java.net/jeps/378)), ar
 
 ## Working with JSON in a "one-dimensional" String
 
-```
+```java
 String simpleJSONMessage = "{\n" + //
 		"\t\"firstName\": \"Billy\",\n" + //
 		"\t\"lastName\": \"Korando\",\n" + //
