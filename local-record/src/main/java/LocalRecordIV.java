@@ -16,15 +16,22 @@ public class LocalRecordIV {
 
 		record Person(String firstName, String lastName, String title, String twitterHandle) {
 
-			public String toString() {
-				return lastName + ", " + firstName + " twitter handle: " + twitterHandle + " job title: " + title;
+			public String toJSON() {
+				return """
+						{
+							"firstName" : "%s",
+							"lastName" : "%s",
+							"title" : "%s",
+							"twitterHandle" : "%s"
+						}
+					   """.formatted(firstName, lastName, title, twitterHandle);
 			}
 		}
 
 		var persons = Stream.of(new Person(firstName1, lastName1, title1, twitterHandle1),
 				new Person(firstName2, lastName2, title2, twitterHandle2));
 
-		persons.forEach(System.out::println);
+		persons.forEach(p -> System.out.println(p.toJSON()));
 	}
 
 }
