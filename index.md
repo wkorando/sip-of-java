@@ -13,3 +13,7 @@ Learn how the addition of pattern matching can greatly improve working with `ins
 ## 003 - Launch Single-File Source Code Applications
 
 Learn how to launch single-file source code applications with the `java` launcher: [Link](003.md)
+
+## 004 - Text Blocks
+
+Learn how text blocks greatly simply working with large and formatted strings in Java: [Link](004.md)
