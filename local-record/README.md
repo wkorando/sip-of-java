@@ -1,110 +1,172 @@
-# Instanceof Pattern Matching
+# Local Records
 
-Instanceof Pattern Matching, added in JDK 15 ([JEP 394](https://openjdk.java.net/jeps/394)), was added to help address the common idiom when using the `instanceof` operator of test, assign, convert:
+Records, added in JDK 16 ([JEP 395](https://openjdk.java.net/jeps/395)), are designed to address difficulties around defining data carriers in Java. In this we will look at how Records help when transforming data within a method. 
 
-```
-Object actuallyAString = "I'm actually a string!";
-	
-if(actuallyAString instanceof String) {//Test if actuallyAString is a String
-	String nowImAString = //Assign actuallyAString to a variable
-	(String) actuallyAString; //Convert actuallyAString to a String
-	
-	System.out.println(nowImAString);
-}
-```
+## Defining Data Carriers Before Records
 
-The above code, along with being verbose, creates several opportunities for introduction of bugs in the code.
+Defining even a simple data carrier before records often required dozens of lines of code. A data carrier would need; fields, a constructor, accessors, `equals()`, `hashCode()`, and often `toString()`, for printing of the contents. This problem can been seen in this below example: 
 
-## Instanceof Pattern Matching
+```java
+String firstName1 = "Billy";
+String lastName1 = "Korando";
+String title1 = "Java Developer Advocate";
+String twitterHandle1 = "@BillyKorando";
 
-Instanceof pattern matching address this issue by extending the `instanceof` operator to take a predicate and a pattern variable that will be assigned when the predicate is true:
+String firstName2 = "Sharat";
+String lastName2 = "Chander";
+String title2 = "Java Developer Advocate";
+String twitterHandle2 = "@Sharat_Chander";
 
-```
-		Object actuallyAString = "I'm actually a string!";
-		
-		if(actuallyAString instanceof String nowImAString) {
-			System.out.println(nowImAString);
-		}
-```
-
-## Flow Scope
-
-The pattern variable, in these examples `nowImAString`, is only available within the _flow scope_ where it was declared. What this means in practice is that `nowImAString` is available everywhere where the compiler *definitely* knows its value has been assigned (i.e. everywhere where `actuallyAString instanceof` is `true`)
-
-
-### Normal Use Cases
-
-Typically this will mean the pattern variable will be available in the evaluation block it was declared, and, if part of an `if` statement, the following code block, like in the below examples of an `if` statement and assigning a `boolean` value. 
-
-```
-Object actuallyAString = "I'm actually a string!";
-	
-if(actuallyAString instanceof String nowImAString) {
-	System.out.println(nowImAString);
-}
-	
-System.out.println(nowImAString); //Compiler error, nowImAString not in scope
-	
-boolean isAString = (actuallyAString instanceof String nowImAString);
-
-System.out.println(nowImAString); //Compiler error, nowImAString not in scope
-```
-
-### AND (&&) and OR (||) Operators
-
-However a pattern variable would leave scope to the right of an OR `||` operator as the pattern variable may not had been assigned:
-
-```
-Object actuallyAString = "I'm actually a string!";
-	
-if(actuallyAString instanceof String nowImAString 
-	|| nowImAString.endsWith("!") //Compiler error, nowImAString not in scope after ||
-) {
-	System.out.println(nowImAString);
-}
-```
-
-The pattern variable would still be in-scope thought to the right of an AND `&&` operator:
-
-```
-Object actuallyAString = "I'm actually a string!";
-	
-if(actuallyAString instanceof String nowImAString && nowImAString.endsWith("!")) {
-	System.out.println(nowImAString);
-}
-```		
-
-### Unusual Use Cases 
-
-There are some unusual ways to work with a pattern variable, like in the below examples of encapsulating `instanceof` in a NOT `!` so that the pattern variable can be referenced in an `else`, or throwing an exception in the body of the `if` so the pattern variable can be referenced outside of the evaluation and `if` code block.
-
-```
-Object actuallyAString = "I'm actually a string!";
-
-if (!(actuallyAString instanceof String nowImAString)) {
-//...
-} else {
-	System.out.println(nowImAString);
+class Person{
+	private String firstName;
+	private String lastName;
+	private String title;
+	private String twitterHandle;
+	public Person(String firstName, String lastName, String title, String twitterHandle) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.title = title;
+		this.twitterHandle = twitterHandle;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		result = prime * result + ((twitterHandle == null) ? 0 : twitterHandle.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		if (firstName == null) {
+			if (other.firstName != null)
+				return false;
+		} else if (!firstName.equals(other.firstName))
+			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		if (twitterHandle == null) {
+			if (other.twitterHandle != null)
+				return false;
+		} else if (!twitterHandle.equals(other.twitterHandle))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", title=" + title
+				+ ", twitterHandle=" + twitterHandle + "]";
+	}
 }
 
-if (!(actuallyAString instanceof String nowImAString)) {
-	throw new IllegalArgumentException("Must be a string!");
+var persons = Stream.of(new Person(firstName1, lastName1, title1, twitterHandle1), 
+new Person(firstName2, lastName2, title2, twitterHandle2));
+
+persons.forEach(System.out::println);
+```
+## Defining a Data Carrier with Records
+
+In the above example the meaning of the what the method is doing is lost because of all the cruft associated with defining a data carrier in Java. With a Records a data carrier can be defined within a single line:
+
+```java
+String firstName1 = "Billy";
+String lastName1 = "Korando";
+String title1 = "Java Developer Advocate";
+String twitterHandle1 = "@BillyKorando";
+
+String firstName2 = "Sharat";
+String lastName2 = "Chander";
+String title2 = "Java Developer Advocate";
+String twitterHandle2 = "@Sharat_Chander";
+
+record Person(String firstName, String lastName, String title, String twitterHandle) {}
+
+var persons = Stream.of(new Person(firstName1, lastName1, title1, twitterHandle1),
+		new Person(firstName2, lastName2, title2, twitterHandle2));
+
+persons.forEach(System.out::println);
+```
+
+## Tradeoffs with Records
+
+The ability to define a data carrier within a single line does come with some tradeoffs. There is less freedom allowed in the defining of a data carrier, but in return a canonical constructor, accessors, `equals()`, `hashCode()`, and `toString()`, are automatically generated by the Java compiler. There are a few other important restrictions, which you can read [here](https://openjdk.java.net/jeps/395#Rules-for-record-classes). 
+
+## Explicitly Defining Generated Methods
+
+An explicit declaration of a generated method is allowed, like in this example with `toString()`:
+
+```java
+String firstName1 = "Billy";
+String lastName1 = "Korando";
+String title1 = "Java Developer Advocate";
+String twitterHandle1 = "@BillyKorando";
+
+String firstName2 = "Sharat";
+String lastName2 = "Chander";
+String title2 = "Java Developer Advocate";
+String twitterHandle2 = "@Sharat_Chander";
+
+record Person(String firstName, String lastName, String title, String twitterHandle) {
+	public String toString() {
+		return lastName + ", " + firstName + " twitter handle: " + twitterHandle + " job title: " + title;
+	}
 }
 
-System.out.println(nowImAString);
+var persons = Stream.of(new Person(firstName1, lastName1, title1, twitterHandle1),
+		new Person(firstName2, lastName2, title2, twitterHandle2));
+
+persons.forEach(System.out::println);
 ```
 
-### Using the Value of a Pattern Variable Outside of Flow Scope
+## Defining Additional Methods
 
-To use value of a pattern variable outside of flow scope, it will need to be assigned to a variable of the scope that is appropriate for your needs, like in the below example of assigning the local variable `aString` the value of `nowImAString` within the `if` block: 
+Additional methods can also be added to a record class like here with `toJSON()`:
 
-```
-Object actuallyAString = "I'm actually a string!";
-String aString = null;
-	
-if(actuallyAString instanceof String nowImAString) {
-	aString  = nowImAString;
+```java
+String firstName1 = "Billy";
+String lastName1 = "Korando";
+String title1 = "Java Developer Advocate";
+String twitterHandle1 = "@BillyKorando";
+
+String firstName2 = "Sharat";
+String lastName2 = "Chander";
+String title2 = "Java Developer Advocate";
+String twitterHandle2 = "@Sharat_Chander";
+
+record Person(String firstName, String lastName, String title, String twitterHandle) {
+	public String toJSON() {
+		return """
+				{
+					"firstName" : "%s",
+					"lastName" : "%s",
+					"title" : "%s",
+					"twitterHandle" : "%s"
+				}
+			   """.formatted(firstName, lastName, title, twitterHandle);
+	}
 }
-	
-System.out.println(aString);
+var persons = Stream.of(new Person(firstName1, lastName1, title1, twitterHandle1),
+		new Person(firstName2, lastName2, title2, twitterHandle2));
+
+persons.forEach(p -> System.out.println(p.toJSON()));
 ```
+
+Happy Coding!
+
