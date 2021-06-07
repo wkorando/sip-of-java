@@ -17,3 +17,7 @@ Learn how to launch single-file source code applications with the `java` launche
 ## 004 - Text Blocks
 
 Learn how text blocks greatly simply working with large and formatted strings in Java: [Link](004.md)
+
+## 005 - Local Records
+
+Learn how records make handling data transformation in methods vastly easier: [Link](005.md)
