@@ -4,10 +4,10 @@ import java.util.List;
 public class CollectionFactoryI {
 
 	public static void main(String[] args) {
-		List<String> values = new ArrayList<>();
-		values.add("value 1");
-		values.add("value 2");
-		values.add("value 3");
+		List<String> values = new ArrayList<String>();
+		values.add("value1");
+		values.add("value2");
+		values.add("value3");
 	}
 
 }

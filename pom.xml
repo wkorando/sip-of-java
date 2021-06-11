@@ -17,6 +17,8 @@
 		<module>local-record</module>
 		<module>collection-factory</module>
 		<module>string-enhancements</module>
+		<module>upgrade-runtime</module>
+		<module>unix-sockets</module>
 	</modules>
 
 </project>
