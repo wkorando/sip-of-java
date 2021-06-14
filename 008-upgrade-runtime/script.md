@@ -1,4 +1,4 @@
-Hey Java developers,
+Hey java developers,
 
 Did you know you can run old Java code on new runtimes without recompiling?
 

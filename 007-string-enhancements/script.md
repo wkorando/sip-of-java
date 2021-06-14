@@ -6,7 +6,7 @@ Getting tangled in knots using Strings in Java?
 
 I've been there to 
 
-Recent Java releases have introduced new convenience methods to String to help untangle those knots
+Java has continued to introduce new convenience methods to String to help untangle those knots
 
 isBlank, added in Java 11, fills the common need to check if a String only contains whitespace characters
 

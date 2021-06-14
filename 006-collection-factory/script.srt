@@ -1,0 +1,60 @@
+﻿1
+00:00:01,200 --> 00:00:02,500
+Hey java developers,
+
+2
+00:00:02,500 --> 00:00:08,966
+Ever needed to define a collection, but getting cramps from all the typing?
+
+3
+00:00:08,966 --> 00:00:10,066
+Same
+
+4
+00:00:10,066 --> 00:00:15,600
+Good news, there the Convenience Factory Methods for Collections added in Java 9
+
+5
+00:00:15,600 --> 00:00:18,600
+With the List factory method "of"
+
+6
+00:00:18,600 --> 00:00:23,500
+you can quickly define a List instance, like in this example of Strings
+
+7
+00:00:23,500 --> 00:00:27,733
+The same syntax is also available for Sets, with Set.of
+
+8
+00:00:27,733 --> 00:00:32,166
+When needing to define a map instance "of" can also be used
+
+9
+00:00:32,166 --> 00:00:36,933
+but the provided values must match key and value types
+
+10
+00:00:36,933 --> 00:00:40,966
+of the map in an alternating pattern, like in this example
+
+11
+00:00:40,966 --> 00:00:45,900
+Alternatively Map.ofEntries can be used with the
+
+12
+00:00:45,900 --> 00:00:48,966
+java.util.Map.entry static method
+
+13
+00:00:48,966 --> 00:00:50,700
+ for better readability
+
+14
+00:00:50,700 --> 00:00:53,133
+at the cost of a little extra typing
+
+15
+00:00:53,133 --> 00:00:54,499
+Happy coding!
+
