@@ -21,3 +21,7 @@ Learn how text blocks greatly simply working with large and formatted strings in
 ## 005 - Local Records
 
 Learn how records make handling data transformation in methods vastly easier: [Link](005.md)
+
+## 006 - Collection Factory
+
+Learn how creating simple collections got a lot easier in Java 9: [Link](005.md)
