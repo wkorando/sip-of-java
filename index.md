@@ -24,4 +24,4 @@ Learn how records make handling data transformation in methods vastly easier: [L
 
 ## 006 - Collection Factory
 
-Learn how creating simple collections got a lot easier in Java 9: [Link](005.md)
+Learn how creating simple collections got a lot easier in Java 9: [Link](006.md)
