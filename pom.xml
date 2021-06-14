@@ -10,15 +10,15 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>switch-expression</module>
-		<module>instanceof</module>
-		<module>single-file</module>
-		<module>text-block</module>
-		<module>local-record</module>
-		<module>collection-factory</module>
-		<module>string-enhancements</module>
-		<module>upgrade-runtime</module>
-		<module>unix-sockets</module>
+		<module>001-switch-expression</module>
+		<module>002-instanceof</module>
+		<module>003-single-file</module>
+		<module>004-text-block</module>
+		<module>005-local-record</module>
+		<module>006-collection-factory</module>
+		<module>007-string-enhancements</module>
+		<module>008-upgrade-runtime</module>
+		<module>009-unix-sockets</module>
 	</modules>
 
 </project>

@@ -9,8 +9,8 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>soj-unix-sockets</artifactId>
-	<name>soj-unix-sockets</name>
+	<artifactId>009-soj-unix-sockets</artifactId>
+	<name>009-soj-unix-sockets</name>
 	<packaging>jar</packaging>
 
 	<description>Demonstrating Unix Sockets</description>

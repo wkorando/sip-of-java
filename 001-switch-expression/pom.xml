@@ -9,8 +9,8 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>soj-switch-expression</artifactId>
-	<name>soj-switch-expression</name>
+	<artifactId>001-soj-switch-expression</artifactId>
+	<name>001-soj-switch-expression</name>
 	<packaging>jar</packaging>
 
 	<description>Demonstrating Switch Expressions</description>
