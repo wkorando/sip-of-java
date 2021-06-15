@@ -6,12 +6,14 @@ Did you know you can upgrade your Java runtime without needing to recompile your
 
 It's true!
 
-And there are several reasons to consider upgrading your runtime, even if you are not planning on making code changes
+And there are several reasons to consider upgrading your runtime, even if you are not planning on using the new APIs
 
-Among the top reasons would be the performance improvements across; memory footprint, startup, ramp up, and throughput, that are made with every JDK release
+With every JDK release there are improvements across; memory footprint, startup, ramp up, and throughput
 
-Here running the Spring Boot Petclinic test app we can see significant performance improvements between running on JDK 8 and JDK 16, though the specific performance improvements you see will vary
+In this load test of the Spring Boot Petclinic app, we see significant improvements between running on JDK 8 and JDK 16, though the specific performance improvements you see may differ
 
-New tools and improved features are also beng added with each release including; new garbage collectors like ZGC, improved observability with Java Flight Recorder, more helpful NullPointerExceptions, improved class data sharing support, and more!
+Security is always a top priority and you can have the best confidence your applications are running on a secure runtime by being on the latest JDK release
+
+New and improved runtime tools and features are also available for use including; ZGC, better container support for JDK Flight Recorder, helpful NullPointerExceptions, improved AppCDS support, and more!
 
 Happy coding!
