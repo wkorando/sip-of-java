@@ -1,23 +1,25 @@
 Hey Java developers,
 
-TCP/IP connections slowing down your intra-system communication?
+TCP/IP connections slowing down your intra-host communication?
 
 [Old school modem tone and me look bored and frustrated in the background]
 
-Consider switching to unix-domain sockets! 
+Consider switching to unix-domain socket channels! 
 
-Unix-domain sockets, added in Java 16, were designed to improve the security and performance for intra-system communication
+Unix-domain socket channels, added in Java 16, were designed to improve the security and performance for intra-host communication
 
-Unlike TCP/IP connections, unix-domain sockets are defined using a filepath like shown in this setting up the host
+Unlike TCP/IP connections, unix-domain sockets are defined using the system filepath 
 
-To communicate to the host from a client, you would do this:
+This improves security, by not requiring applications to accept remote connections when only communicating with other processes on the same host
 
-Show it in action:
+And also allows for OS enforced filesystem controls
 
-Unix-domain sockets Strictly 
+To use a Unix-domain socket channel, define a path, create a UnixDomainSocketAddress, open a ServerSocketChannel using the Unix protocol, and bind this address, and set the channel to accept connections
 
-Can work docker containers using shared volumes
+On the client side, the steps are very similar, but instead you will connect to the channel
 
-Unix sockets also work on Windows Server 2019 or later
+Unix-domain socket channels can be used for communication between containers using shared volumes
+
+And even works on Windows 10 and Windows Server 2019
 
 Happy coding!

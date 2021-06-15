@@ -1,20 +1,17 @@
-Hey java developers,
+Hey Java Developers,
 
-Did you know you can run old Java code on new runtimes without recompiling?
+Did you know you can upgrade your Java runtime without needing to recompile your code?
 
 [Comedy bit]
 
 It's true!
 
-And there are a lot of reasons to do this also!
+And there are several reasons to consider upgrading your runtime, even if you are not planning on making code changes
 
-One of the most common reasons to run even old Java binaries on the latest Java runtimes is to take advantage of the many JVM improvements over the past Java releases
+Among the top reasons would be the performance improvements across; memory footprint, startup, ramp up, and throughput, that are made with every JDK release
 
-(Fast scrolling list of all tickets closed improving performance)
+Here running the Spring Boot Petclinic test app we can see significant performance improvements between running on JDK 8 and JDK 16, though the specific performance improvements you see will vary
 
-Security is always a top priority, and by running on the latest runtime you can have the best confidence your applications are secure
-
-Finally you can use many of the newest runtime features including new; GCs like Shenadoha, ZGC, improvements observability with Java Flight Recorder, and the latest CDS improvements
+New tools and improved features are also beng added with each release including; new garbage collectors like ZGC, improved observability with Java Flight Recorder, more helpful NullPointerExceptions, improved class data sharing support, and more!
 
 Happy coding!
-

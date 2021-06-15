@@ -1,8 +1,8 @@
-# Unix-Domain Sockets
+# Unix-Domain Socket Channels
 
 * Added in Java 16
 
-* Strictly same system communication
+* Strictly intra-host communication
 
 * Faster setup and higher throughput than TCP/IP loopback connections
 
