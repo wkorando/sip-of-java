@@ -10,7 +10,6 @@ public class StringEnhancementsIII {
 				That language?
 				Java!
 				""";
-		
 		Stream<String> lines = stringWithManyLines.lines();
 		
 		lines.forEach(System.out::print);//print as a single line

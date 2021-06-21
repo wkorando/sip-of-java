@@ -1,110 +1,120 @@
-# Instanceof Pattern Matching
+# New Convenience Methods for String 
 
-Instanceof Pattern Matching, added in JDK 15 ([JEP 394](https://openjdk.java.net/jeps/394)), was added to help address the common idiom when using the `instanceof` operator of test, assign, convert:
+String is one of the most frequently used types within Java. With nearly every release of Java, String sees some changes, often in the form of adding convenience methods addressing common use cases when interacting with String instances. In this article we will example a few of these methods that have been added to String in recent release of Java. 
 
-```
-Object actuallyAString = "I'm actually a string!";
+
+## isBlank
+
+Needing to see if a String contains only whitespace characters is a common requirement. `isBlank()` added in Java 11, returns true if a String contains on whitespace as defined within `java.lang.Character.isWhitespace(int codePoint)`: 
+
+```java
+String aEmptyString = "";
+if(aEmptyString.isEmpty()){
+	System.out.println(
+	"aEmptyString is empty!");
+}
 	
-if(actuallyAString instanceof String) {//Test if actuallyAString is a String
-	String nowImAString = //Assign actuallyAString to a variable
-	(String) actuallyAString; //Convert actuallyAString to a String
-	
-	System.out.println(nowImAString);
+String aBlankString = "            ";
+if(aBlankString.isBlank()){
+	System.out.println(
+	"aBlankString is blank!");
 }
 ```
 
-The above code, along with being verbose, creates several opportunities for introduction of bugs in the code.
-
-## Instanceof Pattern Matching
-
-Instanceof pattern matching address this issue by extending the `instanceof` operator to take a predicate and a pattern variable that will be assigned when the predicate is true:
+**Output:**
 
 ```
-		Object actuallyAString = "I'm actually a string!";
-		
-		if(actuallyAString instanceof String nowImAString) {
-			System.out.println(nowImAString);
-		}
+aEmptyString is empty!
+aBlankString is blank!
 ```
 
-## Flow Scope
+## Stripping Whitespace
 
-The pattern variable, in these examples `nowImAString`, is only available within the _flow scope_ where it was declared. What this means in practice is that `nowImAString` is available everywhere where the compiler *definitely* knows its value has been assigned (i.e. everywhere where `actuallyAString instanceof` is `true`)
+Like with checking if a String contains only whitepsace characters, removing leading and trailing whitespace characters is also a common requirement. Also a part of Java 11, three methods were added to String to address these needs; 
 
+* `stripLeading()` : Returns a String with all leading whitespace characters removed.
+* `stripTrailing()` : Returns a String with all trailing whitespace characters removed.
+* `string()` : Returns a String with all leading and trailing whitespace characters removed.
 
-### Normal Use Cases
+Like with `isBlank()` whitespace is based on `java.lang.Character.isWhitespace(int codePoint)`. 
 
-Typically this will mean the pattern variable will be available in the evaluation block it was declared, and, if part of an `if` statement, the following code block, like in the below examples of an `if` statement and assigning a `boolean` value. 
+```java
+String aPaddedString = "   a padded string   ";
+System.out.println(
+  "stripLeading {" + aPaddedString.stripLeading() + "}");
+System.out.println(
+  "stripTrailing {" + aPaddedString.stripTrailing() + "}");
+System.out.println(
+  "strip {" + aPaddedString.strip() + "}");
+```
+
+**Output:**
 
 ```
-Object actuallyAString = "I'm actually a string!";
+stripLeading {a padded string   }
+stripTrailing {   a padded string}
+strip {a padded string}
+```
+
+## lines
+
+`lines()`, also a part of the Java 11 release, breaks apart a String by carriage returns ((U+000A) "\n", (U+000D) "\r", (U+000D U+000A)  "\r\n"), and returns the result as a `Stream<String>`. This can be useful for when ingesting a data file as a String where each line in the String represents a new record.
+
+```java	
+String stringWithManyLines = """
+		lorem 
+		ipsum 
+		dolor 
+		sit 
+		amet
+		""";
 	
-if(actuallyAString instanceof String nowImAString) {
-	System.out.println(nowImAString);
-}
+Stream<String> lines 
+	= stringWithManyLines.lines();
 	
-System.out.println(nowImAString); //Compiler error, nowImAString not in scope
-	
-boolean isAString = (actuallyAString instanceof String nowImAString);
-
-System.out.println(nowImAString); //Compiler error, nowImAString not in scope
+lines.forEach(
+	System.out::print);//print as a single line
 ```
 
-### AND (&&) and OR (||) Operators
-
-However a pattern variable would leave scope to the right of an OR `||` operator as the pattern variable may not had been assigned:
+**Output:**
 
 ```
-Object actuallyAString = "I'm actually a string!";
-	
-if(actuallyAString instanceof String nowImAString 
-	|| nowImAString.endsWith("!") //Compiler error, nowImAString not in scope after ||
-) {
-	System.out.println(nowImAString);
-}
+loremipsumdolorsitamet
 ```
 
-The pattern variable would still be in-scope thought to the right of an AND `&&` operator:
+## transform
 
-```
-Object actuallyAString = "I'm actually a string!";
-	
-if(actuallyAString instanceof String nowImAString && nowImAString.endsWith("!")) {
-	System.out.println(nowImAString);
-}
-```		
+`transform()`, added in Java 12, allows for a function to be to a String and returns the result of the function. (
 
-### Unusual Use Cases 
-
-There are some unusual ways to work with a pattern variable, like in the below examples of encapsulating `instanceof` in a NOT `!` so that the pattern variable can be referenced in an `else`, or throwing an exception in the body of the `if` so the pattern variable can be referenced outside of the evaluation and `if` code block.
-
-```
-Object actuallyAString = "I'm actually a string!";
-
-if (!(actuallyAString instanceof String nowImAString)) {
-//...
-} else {
-	System.out.println(nowImAString);
-}
-
-if (!(actuallyAString instanceof String nowImAString)) {
-	throw new IllegalArgumentException("Must be a string!");
-}
-
-System.out.println(nowImAString);
+```java
+String aStringToTransform = "Transform me!";
+String transformedString 
+	= aStringToTransform.transform(s -> s.toUpperCase());
+System.out.println(transformedString);
 ```
 
-### Using the Value of a Pattern Variable Outside of Flow Scope
-
-To use value of a pattern variable outside of flow scope, it will need to be assigned to a variable of the scope that is appropriate for your needs, like in the below example of assigning the local variable `aString` the value of `nowImAString` within the `if` block: 
+**Output:**
 
 ```
-Object actuallyAString = "I'm actually a string!";
-String aString = null;
-	
-if(actuallyAString instanceof String nowImAString) {
-	aString  = nowImAString;
-}
-	
-System.out.println(aString);
+TRANSFORM ME!
 ```
+
+## formatted
+
+`formatted()`, added in Java 15, allows formatting to be applied to a String without first needing to create a `java.util.Formatter` instance.
+
+```java
+String aFormattedString = 
+	"The current version of %s is %d";
+
+System.out.println(
+	aFormattedString.formatted("Java", 16));
+```
+
+**Output:**
+
+```
+The current version of Java is 16
+```
+
+Happy Coding!
