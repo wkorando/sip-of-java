@@ -34,7 +34,7 @@ Like with checking if a String contains only whitepsace characters, removing lea
 
 * `stripLeading()` : Returns a String with all leading whitespace characters removed.
 * `stripTrailing()` : Returns a String with all trailing whitespace characters removed.
-* `string()` : Returns a String with all leading and trailing whitespace characters removed.
+* `strip()` : Returns a String with all leading and trailing whitespace characters removed.
 
 Like with `isBlank()` whitespace is based on `java.lang.Character.isWhitespace(int codePoint)`. 
 
