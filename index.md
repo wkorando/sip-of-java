@@ -25,3 +25,7 @@ Learn how records make handling data transformation in methods vastly easier: [L
 ## 006 - Collection Factory
 
 Learn how creating simple collections got a lot easier in Java 9: [Link](006.md)
+
+## 007 - New Convenience Methods for String 
+
+Several new convenience methods have been added to String in recent releases of Java, let's take a loo kat a few of them: [Link](007.md)
