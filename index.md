@@ -29,3 +29,6 @@ Learn how creating simple collections got a lot easier in Java 9: [Link](006.md)
 ## 007 - New Convenience Methods for String 
 
 Several new convenience methods have been added to String in recent releases of Java, let's take a loo kat a few of them: [Link](007.md)
+
+## 008 - Upgrade Runtime
+Learn how to take advantage of new runtime features and improved performance by moving your existing binaries to the latest java runtimes: [Link](008.md)
