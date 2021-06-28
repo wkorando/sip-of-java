@@ -1,7 +1,7 @@
 ## New Runtime Features and Improvements
 
 * ZGC
-* New and improved AArch64 support
+* New and improved AArch64 support across OSs
 * More events types tracked by JDK Flight Recorder
 * Better container support 
 * Improved AppCDS support

@@ -14,6 +14,6 @@ In this load test of the Spring Boot Petclinic app, we see significant improveme
 
 Security is always a top priority and you can have the best confidence your applications are running on a secure runtime by being on the latest JDK release
 
-New and improved runtime tools and features are also available for use including; ZGC, better container support for JDK Flight Recorder, helpful NullPointerExceptions, improved AppCDS support, and more!
+Some other runtime improvements include; ZGC, New and improved AArch64 support, More events types tracked by JFR, better container support, improved AppCDS support, modular runtime and custom java images with jlink, helpful NPEs, and more!
 
 Happy coding!

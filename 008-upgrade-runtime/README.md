@@ -29,7 +29,7 @@ Application startup: 8.665 seconds
 
 Load test execution time: 137 seconds
 
-#### Java 16 Results (build 16.0.1+9-24)
+#### Java 16 Results (16.0.1+9-24)
 Application startup: 6.452 seconds
 
 Load test execution time: 130 seconds
@@ -44,9 +44,12 @@ Security is always a top priority with every JDK release. In the Java Bugs Syste
 
 There are a number of other runtime improvements and features that can also be taken advantage of by moving to the latest JDK runtime including:
 
-* ZGC 
-* New features for JDK Flight Recorder
+* ZGC
+* New and improved AArch64 support across OSs
+* More events types tracked by JDK Flight Recorder
 * Better container support 
+* Improved AppCDS support
+* Modular runtime and custom Java runtime image support with `jlink`
 * Helpful NullPointerExceptions
 
   Java 8:
@@ -63,5 +66,3 @@ There are a number of other runtime improvements and features that can also be t
 	Cannot invoke "String.length()" because "<local1>" is null
 	at NPEService.main(NPEService.java:7)
 	```
-
-* Improved AppCDS support
