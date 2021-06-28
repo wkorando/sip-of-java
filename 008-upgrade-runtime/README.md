@@ -34,6 +34,8 @@ Application startup: 6.452 seconds
 
 Load test execution time: 130 seconds
 
+JFR recordings of load tests can be viewed here: [link](https://github.com/wkorando/sip-of-java/tree/main/008-upgrade-runtime)
+
 ## Security
 
 Security is always a top priority with every JDK release. In the Java Bugs System, you can see here the security vulnerabilities being patches and improvements made from the release of JDK 9 on [link](https://bugs.openjdk.java.net/browse/JDK-8159528?jql=text%20~%20%22security%22%20and%20resolution%20%3D%20Fixed%20and%20status%20%3D%20Resolved%20and%20fixVersion%20%3E%3D%209).
