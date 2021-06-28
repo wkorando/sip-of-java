@@ -1,78 +1,65 @@
-# Text Block
+# Upgrading Java Runtime	
 
-Text Blocks, added in Java 15 ([JEP 378](https://openjdk.java.net/jeps/378)), are a Java feature designed to improve the experience of working with large and formatted strings in Java. As is commonly the case when working with markup languages like; JSON, XML, and HTML in Java code.  
+A new version of the JDK is being released every six-months, and with it come improved performance and new runtime features. Upgrading to a runtime might seem daunting, but did you know you can run code built using older versions of Java on the newest runtimes? And that you can still benefit from these performance and runtime improvements? 
 
-## Working with JSON in a "one-dimensional" String
+## Performance Improvements
 
-Historically String literals in Java could only be defined "one-dimensionally" and required escape sequences for line breaks and escaping characters like `"`. Which made even defining even simple JSON messages like in the example below near illegible: 
+The JVM is continuously seeing performance improvements with every new JDK release. With upgrading to a newer runtime you can expected to see improvements across: 
 
-```
-String simpleJSONMessage = "{\n" + //
-		"\t\"firstName\": \"Billy\",\n" + //
-		"\t\"lastName\": \"Korando\",\n" + //
-		"\t\"jobTitle\": \"Java Developer Advocate\",\n" + //
-		"\t\"twitterHandle\": \"@BillyKorando\"\n" + //
-		"}";
-```
+* Memory footprint
 
-## Working with JSON in a Text Block
+* Startup
 
-A Text Block is delimited by triple-quotes: `"""`. Within the triple quotes, formatting and line breaks are preserved and the need for escaping is relaxed. Allowing the above JSON message to be defined in the same way it would be printed:
+* Ramp up
 
-```
-String simpleJSONMessage = """
-		{
-		        "firstName": "Billy",
-		        "lastName": "Korando",
-		        "jobTitle": "Java Developer Advocate",
-		        "twitterHandle": "@BillyKorando"
-		}
-		""";
-```
+* Throughput
 
-### Incidental Whitespace:
+All without having to recompile code or make any configuration changes.
 
-Within text blocks is the concept of incidental whitespace. You can read more about the topic [here](https://cr.openjdk.java.net/~jlaskey/Strings/TextBlocksGuide_v9.html#incidental-white-space), which covers all the edge cases. But the short way of describing it is the compiler will ignore the whitespace, both tabs and spaces, within your code, but not within the text block itself. 
+### Load Test
 
-## Using String Formatter
+A demonstration of these improvements can be seen with the below example of a load test using the Spring Boot Petclinic App:
 
-Text Blocks are fully compatible with the String [Formatter](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/Formatter.html) which can allow for values to be easily inserted in within a text block like in the below example:
+* Requests: 500 (serial)
+* Heap size: 48 MB
+* Garbage collector: G1
 
-```
-String simpleJSONMessage = """
-		{
-		        "firstName": "%s",
-		        "lastName": "%s",
-		        "jobTitle": "%s",
-		        "twitterHandle": "%s"
-		}
-		""";
+#### Java 8 Results (1.8.0_291-b10)
+Application startup: 8.665 seconds
 
-System.out.println(simpleJSONMessage.
-		formatted("Billy", 
-				"Korando", 
-				"Java Developer Advocate", 
-				"@BillyKorando"));
-```
+Load test execution time: 137 seconds
 
-## Really Long Single-Line Strings
+#### Java 16 Results (build 16.0.1+9-24)
+Application startup: 6.452 seconds
 
-Text blocks can also make working with really long strings that are to be printed as a single line easier as well. Simply adding a `\` at the end of the line suppresses a new line character allow ing the below String:
+Load test execution time: 130 seconds
 
-```
-String aReallyLongLine = """
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
-		sed do eiusmod tempor incididunt ut labore et dolore \
-		magna aliqua. \
-		""";
+## Security
 
-System.out.println(aReallyLongLine);
-```
+Security is always a top priority with every JDK release. In the Java Bugs System, you can see here the security vulnerabilities being patches and improvements made from the release of JDK 9 on [link](https://bugs.openjdk.java.net/browse/JDK-8159528?jql=text%20~%20%22security%22%20and%20resolution%20%3D%20Fixed%20and%20status%20%3D%20Resolved%20and%20fixVersion%20%3E%3D%209).
 
-To be printed as a single line:
+## New Runtime Features and Improvements
 
-```
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-```
+There are a number of other runtime improvements and features that can also be taken advantage of by moving to the latest JDK runtime including:
 
- Happy coding!
+* ZGC 
+* New features for JDK Flight Recorder
+* Better container support 
+* Helpful NullPointerExceptions
+
+  Java 8:
+  
+	```
+	Exception in thread "main" java.lang.NullPointerException
+		at NPEService.main(NPEService.java:7)
+	```
+
+  Java 16:
+  
+	```
+	Exception in thread "main" java.lang.NullPointerException: 
+	Cannot invoke "String.length()" because "<local1>" is null
+	at NPEService.main(NPEService.java:7)
+	```
+
+* Improved AppCDS support
