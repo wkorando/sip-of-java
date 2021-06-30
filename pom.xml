@@ -18,7 +18,8 @@
 		<module>006-collection-factory</module>
 		<module>007-string-enhancements</module>
 		<module>008-upgrade-runtime</module>
-		<module>009-unix-sockets</module>
+		<module>009-string-join</module>
+		<module>010-unix-sockets</module>
 	</modules>
 
 </project>

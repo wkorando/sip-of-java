@@ -1,0 +1,27 @@
+Hey Java developers,
+
+Frustrated having to deal with hanging commas, carriage returns, and other nasty bits when transforming lists of items into a string?
+
+[ funny bit with strings]
+
+Me too 
+
+When transforming lists into strings, considering using the join APIs, all available in JDK 8
+
+StringJoiner can take either just a delimiter, or also a optional prefix and suffix. 
+
+Items can be added to a StringJoiner individually
+
+Or if the items are contained in an Iterable, StringJoiner::add can be referenced within a forEach call
+
+Alternatively a String list can be built using a stream and Collector.join()
+
+Like with StringJoiner, the prefix and suffix values are optional
+
+If you only need a delimiter, consider String.join 
+
+Provide the delimiter, and either an iterable of the items to be added
+
+Or pass the values in as varargs, like seen here
+
+Happy coding!
