@@ -32,3 +32,6 @@ Several new convenience methods have been added to String in recent releases of 
 
 ## 008 - Upgrade Runtime
 Learn how to take advantage of new runtime features and improved performance by moving your existing binaries to the latest java runtimes: [Link](008.md)
+
+## 008 - String Join
+Learn how to quickly and easily transform list of objects into strings with delimiters, prefixes, and suffixes using the JDK 8 Join APIs: [Link](009.md)
