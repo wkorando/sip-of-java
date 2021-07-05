@@ -7,8 +7,14 @@ for(String devAdvocate : devAdvocates) {
 	devAdvocateList.append(devAdvocate);
 	devAdvocateList.append(", ");
 }
-devAdvocateList = devAdvocateList.delete(devAdvocateList.length()-2, devAdvocateList.length());
+
 devAdvocateList.append(" }");
 
 System.out.println(devAdvocateList);
-```java
+```
+
+## OUTPUT
+
+```
+{ Billy, David, Denys, José, Nicolai,  }
+```
