@@ -1,120 +1,107 @@
-# New Convenience Methods for String 
+# Join APIs for String
 
-String is one of the most frequently used types within Java. With nearly every release of Java, String sees some changes, often in the form of adding convenience methods addressing common use cases when interacting with String instances. In this article we will example a few of these methods that have been added to String in recent release of Java. 
-
-
-## isBlank
-
-Needing to see if a String contains only whitespace characters is a common requirement. `isBlank()` added in Java 11, returns true if a String contains on whitespace as defined within `java.lang.Character.isWhitespace(int codePoint)`: 
+Taking a list of items and transforming them into a String with delimiters between each item and possibly prefixes and suffixes, is a common need in software development. It's also a frequent source of frustration as the below code example demonstrates.
 
 ```java
-String aEmptyString = "";
-if(aEmptyString.isEmpty()){
-	System.out.println(
-	"aEmptyString is empty!");
+List<String> devAdvocates =  List.of("Billy", "David", "Denys", "José", "Nicolai");
+StringBuilder devAdvocateList = new StringBuilder();
+
+devAdvocateList.append("{ ");
+for(String devAdvocate : devAdvocates) {
+	devAdvocateList.append(devAdvocate);
+	devAdvocateList.append(", ");
+}
+
+devAdvocateList.append(" }");
+
+System.out.println(devAdvocateList);
+```
+
+## OUTPUT
+
+```
+{ Billy, David, Denys, José, Nicolai,  }
+```
+
+
+Manually having to add the prefix and suffix before and after a loop statement is messy. There is also the issue of dealingwith the final delimiter instance, which often requires adding logic to a loop to skip adding the delimiter after the last time, or messy editing of the String to remove the final delimiter. 
+
+Luckily there is a much easier way of handling this, the Join APIs, all of which are avaiable in JDK 8!
+
+## StringJoiner
+
+`StringJoiner` has two constructors, one taking only a delimiter, a second that takes a prefix and suffix. Items can be add to a `StringJoiner` individually using `add()` like in the example below: 
+
+
+```java
+List<String> devAdvocates =  List.of("Billy", "David", "Denys", "José", "Nicolai");
+
+		
+StringJoiner joiner = new StringJoiner(", ", "{ ", " }");
+for(String devAdvocate : devAdvocates) {
+
+	joiner.add(devAdvocate);
 }
 	
-String aBlankString = "            ";
-if(aBlankString.isBlank()){
-	System.out.println(
-	"aBlankString is blank!");
-}
+System.out.println(joiner.toString());
 ```
 
-**Output:**
+## OUTPUT
 
 ```
-aEmptyString is empty!
-aBlankString is blank!
+{ Billy, David, Denys, José, Nicolai }
 ```
 
-## Stripping Whitespace
+### Adding with forEach
 
-Like with checking if a String contains only whitepsace characters, removing leading and trailing whitespace characters is also a common requirement. Also a part of Java 11, three methods were added to String to address these needs; 
-
-* `stripLeading()` : Returns a String with all leading whitespace characters removed.
-* `stripTrailing()` : Returns a String with all trailing whitespace characters removed.
-* `strip()` : Returns a String with all leading and trailing whitespace characters removed.
-
-Like with `isBlank()` whitespace is based on `java.lang.Character.isWhitespace(int codePoint)`. 
+If the items being transformed to a String are already in an `Iterable` instance, like in the example below using `List` (which extends `Iterable`), then all the items can be added in a single call with `forEach` and using the `StringJoiner::add` method reference like in the below example:
 
 ```java
-String aPaddedString = "   a padded string   ";
-System.out.println(
-  "stripLeading {" + aPaddedString.stripLeading() + "}");
-System.out.println(
-  "stripTrailing {" + aPaddedString.stripTrailing() + "}");
-System.out.println(
-  "strip {" + aPaddedString.strip() + "}");
+List<String> devAdvocates =  List.of("Billy", "David", "Denys", "José", "Nicolai");
+		
+		
+StringJoiner joiner = new StringJoiner(", ", "{ ", " }");
+
+devAdvocates.forEach(joiner::add);
+	
+System.out.println(joiner.toString());
 ```
 
-**Output:**
+## Collectors.joining()
+
+If you prefer to use a `Stream` consider using `Collectors.joining()`. Like with `StringJoiner`, `Collectors.joining()` can either take just a delimiter, or a prefix and suffix. The below demonstrates using `Collectors.joining()`:
+
+```java
+List<String> devAdvocates =  List.of("Billy", "David", "Denys", "José", "Nicolai");
+		
+String devAdvocatesList = devAdvocates.stream().collect(Collectors.joining(", ", "{ ", " }"));
+		
+System.out.println(devAdvocatesList);
+```
+
+## String.join()
+
+If you only need to use a delimiter in the String list being built, `String.join()` might be the best option. `String.join()` can accept an `Iterable` like in the below example:
+
+```java
+List<String> devAdvocates =  List.of("Billy", "David", "Denys", "José", "Nicolai");
+				
+System.out.println(String.join(", ", devAdvocates));
+```
+
+## OUTPUT
 
 ```
-stripLeading {a padded string   }
-stripTrailing {   a padded string}
-strip {a padded string}
+Billy, David, Denys, José, Nicolai
 ```
 
-## lines
+### Varargs
 
-`lines()`, also a part of the Java 11 release, breaks apart a String by carriage returns ((U+000A) "\n", (U+000D) "\r", (U+000D U+000A)  "\r\n"), and returns the result as a `Stream<String>`. This can be useful for when ingesting a data file as a String where each line in the String represents a new record.
+`String.join()` can also take a varargs of items like shown here:
 
 ```java	
-String stringWithManyLines = """
-		lorem 
-		ipsum 
-		dolor 
-		sit 
-		amet
-		""";
-	
-Stream<String> lines 
-	= stringWithManyLines.lines();
-	
-lines.forEach(
-	System.out::print);//print as a single line
-```
-
-**Output:**
+System.out.println(String.join(", ", "Billy", "David", "Denys", "José", "Nicolai"));
 
 ```
-loremipsumdolorsitamet
-```
 
-## transform
-
-`transform()`, added in Java 12, allows for a function to be to a String and returns the result of the function. (
-
-```java
-String aStringToTransform = "Transform me!";
-String transformedString 
-	= aStringToTransform.transform(s -> s.toUpperCase());
-System.out.println(transformedString);
-```
-
-**Output:**
-
-```
-TRANSFORM ME!
-```
-
-## formatted
-
-`formatted()`, added in Java 15, allows formatting to be applied to a String without first needing to create a `java.util.Formatter` instance.
-
-```java
-String aFormattedString = 
-	"The current version of %s is %d";
-
-System.out.println(
-	aFormattedString.formatted("Java", 16));
-```
-
-**Output:**
-
-```
-The current version of Java is 16
-```
-
-Happy Coding!
+Happy coding!
