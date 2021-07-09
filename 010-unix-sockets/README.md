@@ -1,78 +1,68 @@
-# Text Block
+# Unix-Domain Socket Channels
 
-Text Blocks, added in Java 15 ([JEP 378](https://openjdk.java.net/jeps/378)), are a Java feature designed to improve the experience of working with large and formatted strings in Java. As is commonly the case when working with markup languages like; JSON, XML, and HTML in Java code.  
+Unix-Domain Socket Channels, added in Java 16 ([JEP 380](https://openjdk.java.net/jeps/380)), are a Java feature designed to improve inter-processor communication on the same host, over the usage of TCP/IP.  
 
-## Working with JSON in a "one-dimensional" String
+## Same Host Communication
 
-Historically String literals in Java could only be defined "one-dimensionally" and required escape sequences for line breaks and escaping characters like `"`. Which made even defining even simple JSON messages like in the example below near illegible: 
+Synchronous communication between two discreet processes that are located on the same host is a somewhat common need. For Java, this has primarily been done through TCP/IP connections. TCP/IP connections have relatively high overhead in setup and also limited throughput. For an application that only ever communicates with a local process, this also opens a security vulnerability as they will need to accept remote connections. 
 
-```
-String simpleJSONMessage = "{\n" + //
-		"\t\"firstName\": \"Billy\",\n" + //
-		"\t\"lastName\": \"Korando\",\n" + //
-		"\t\"jobTitle\": \"Java Developer Advocate\",\n" + //
-		"\t\"twitterHandle\": \"@BillyKorando\"\n" + //
-		"}";
-```
+### Unix-Domain Socket Channels
 
-## Working with JSON in a Text Block
+Unix-Domain Socket Channels (Unix Sockets), added in Java 16, make use of the `AF_UNIX` (`AF_LOCAL`) socket family. Unix Sockets are strictly limited to intra-host communication, but offer:
 
-A Text Block is delimited by triple-quotes: `"""`. Within the triple quotes, formatting and line breaks are preserved and the need for escaping is relaxed. Allowing the above JSON message to be defined in the same way it would be printed:
+* Faster setup and higher throughput than TCP/IP loopback connections
 
-```
-String simpleJSONMessage = """
-		{
-		        "firstName": "Billy",
-		        "lastName": "Korando",
-		        "jobTitle": "Java Developer Advocate",
-		        "twitterHandle": "@BillyKorando"
-		}
-		""";
-```
+* Allow OS enforced controls filesystem controls 
 
-### Incidental Whitespace:
+* Can work with containers via shared volumes
 
-Within text blocks is the concept of incidental whitespace. You can read more about the topic [here](https://cr.openjdk.java.net/~jlaskey/Strings/TextBlocksGuide_v9.html#incidental-white-space), which covers all the edge cases. But the short way of describing it is the compiler will ignore the whitespace, both tabs and spaces, within your code, but not within the text block itself. 
+Also despite their name, Unix Sockets even work on Windows 10 and Windows Server 2019.
 
-## Using String Formatter
+## Configuring Communication
 
-Text Blocks are fully compatible with the String [Formatter](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/Formatter.html) which can allow for values to be easily inserted in within a text block like in the below example:
+Setting up a Unix Socket appropriately requires configuring a "server" and a "client" like in the below examples. 
 
-```
-String simpleJSONMessage = """
-		{
-		        "firstName": "%s",
-		        "lastName": "%s",
-		        "jobTitle": "%s",
-		        "twitterHandle": "%s"
-		}
-		""";
+### Server
 
-System.out.println(simpleJSONMessage.
-		formatted("Billy", 
-				"Korando", 
-				"Java Developer Advocate", 
-				"@BillyKorando"));
+Configuring the "server" is pretty simple:
+
+```java
+var address = UnixDomainSocketAddress.of("/mnt/server");
+try (var serverChannel = ServerSocketChannel.open(UNIX)) {
+    serverChannel.bind(address);
+    try (var clientChannel = serverChannel.accept()) {
+        ByteBuffer buf = ByteBuffer.allocate(64);
+        clientChannel.read(buf);
+        buf.flip();
+        System.out.printf("Read %d bytes\n", buf.remaining());
+    }
+} finally {
+    Files.deleteIfExists(address.getPath());
+}
 ```
 
-## Really Long Single-Line Strings
+In the above example `/mnt/server` is the socket path. 
 
-Text blocks can also make working with really long strings that are to be printed as a single line easier as well. Simply adding a `\` at the end of the line suppresses a new line character allow ing the below String:
+The channel must then be opened: `var serverChannel = ServerSocketChannel.open(UNIX)`
 
+The server must then be told to listen to communication coming from the channel: `var clientChannel = serverChannel.accept()`
+
+To pull data sent on the data, use `read()`:  `clientChannel.read(buf)`
+
+### Client
+
+Configuration on the client side is even simpler:
+
+```java
+var address = UnixDomainSocketAddress.of("/mnt/server");
+try (var clientChannel = SocketChannel.open(address)) {
+    ByteBuffer buf = ByteBuffer.wrap("Hello world".getBytes());
+    clientChannel.write(buf);
+}
 ```
-String aReallyLongLine = """
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
-		sed do eiusmod tempor incididunt ut labore et dolore \
-		magna aliqua. \
-		""";
 
-System.out.println(aReallyLongLine);
-```
+The channel to the defined path `/mnt/server` must be opened: `var clientChannel = SocketChannel.open(address)`
 
-To be printed as a single line:
+To send data along the channel, use `write()`: `clientChannel.write(buf);`
 
-```
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-```
-
- Happy coding!
+Happy Coding!

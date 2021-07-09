@@ -1,12 +1,11 @@
 # Unix-Domain Socket Channels
 
-* Added in Java 16
+* Improved Security:
+	* No remote connections needed for intra-host communication
 
-* Strictly intra-host communication
+	* Allow OS enforced controls filesystem controls 
 
 * Faster setup and higher throughput than TCP/IP loopback connections
-
-* Allow OS enforced controls filesystem controls 
 
 * Can work with containers via shared volumes
 
