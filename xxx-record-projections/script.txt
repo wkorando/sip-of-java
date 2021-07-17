@@ -1,0 +1,12 @@
+Hey Java developers,
+
+Excited for Java Records, but wondering where to use them in your application?
+
+[Comedy bit]
+
+Try using your records as projections
+
+
+
+
+Happy coding!

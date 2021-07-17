@@ -125,7 +125,9 @@ String twitterHandle2 = "@Sharat_Chander";
 
 record Person(String firstName, String lastName, String title, String twitterHandle) {
 	public String toString() {
-		return lastName + ", " + firstName + " twitter handle: " + twitterHandle + " job title: " + title;
+		return lastName + ", " + firstName + 
+		" twitter handle: " + twitterHandle + 
+		" job title: " + title;
 	}
 }
 

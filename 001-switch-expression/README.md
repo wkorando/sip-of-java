@@ -2,7 +2,7 @@
 
 Switch Expressions, added in Java 14 ([JEP 361](https://openjdk.java.net/jeps/361)) are a great way of handling evaluations that have _n_ paths like in this example: 
 
-```
+```java
 String input = args[0];
 if (input.equals("1")) {
 	System.out.println("Monday");
@@ -25,7 +25,7 @@ if (input.equals("1")) {
 
 The above can be expressed more succinctly, and less error prone, with a switch expression: 
 
-```
+```java
 switch (args[0]) {
 case "1" -> System.out.println("Sunday");
 case "2" -> System.out.println("Monday");
@@ -42,7 +42,7 @@ default -> System.out.println("Invalid selection, valid choices 1-7");
 
 A switch expression can also return a value:
 
-```
+```java
 String result = switch (args[0]) {
 case "1" -> "Sunday";
 case "2" -> "Monday";
@@ -61,7 +61,7 @@ System.out.println(result);
 
 A case can also be expressed in a code block if multiple statements need to be executed for a case:
 
-```
+```java
 String result = switch (args[0]) {
 case "1" -> "Sunday";
 case "2" -> "Monday";
@@ -81,7 +81,7 @@ default -> {
 
 When a switch expression is returning a value and a case is defined with a block, that block must include a `yield` statement as the final line:
 
-```
+```java
 default -> {
 	System.out.println("Invalid selection, valid choices 1-7");
 	yield "Invalid Choice";
@@ -92,7 +92,7 @@ default -> {
 
 A switch expression must be exhaustive. In most cases this will mean a `default` case must be defined for the expression. However in the below example using a `enum` a default case is not required as ever enum value has a case mapped to it:
 
-```
+```java
 enum DaysOfWeek {
 	SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY ;
 }

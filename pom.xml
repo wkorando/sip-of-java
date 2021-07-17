@@ -20,6 +20,10 @@
 		<module>008-upgrade-runtime</module>
 		<module>009-string-join</module>
 		<module>010-unix-sockets</module>
+		<module>011-jfr</module>
+		<module>xxx-streams-updates</module>
+		<module>xxx-sealed-classes</module>
+		<module>xxx-record-projections</module>
 	</modules>
 
 </project>

@@ -19,7 +19,7 @@ String simpleJSONMessage = "{\n" + //
 
 A Text Block is delimited by triple-quotes: `"""`. Within the triple quotes, formatting and line breaks are preserved and the need for escaping is relaxed. Allowing the above JSON message to be defined in the same way it would be printed:
 
-```
+```java
 String simpleJSONMessage = """
 		{
 		        "firstName": "Billy",
@@ -38,7 +38,7 @@ Within text blocks is the concept of incidental whitespace. You can read more ab
 
 Text Blocks are fully compatible with the String [Formatter](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/Formatter.html) which can allow for values to be easily inserted in within a text block like in the below example:
 
-```
+```java
 String simpleJSONMessage = """
 		{
 		        "firstName": "%s",
@@ -59,7 +59,7 @@ System.out.println(simpleJSONMessage.
 
 Text blocks can also make working with really long strings that are to be printed as a single line easier as well. Simply adding a `\` at the end of the line suppresses a new line character allow ing the below String:
 
-```
+```java
 String aReallyLongLine = """
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
 		sed do eiusmod tempor incididunt ut labore et dolore \

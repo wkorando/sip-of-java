@@ -1,0 +1,31 @@
+Hey Java developers,
+
+Dealing with performance or runtime issues in production, but your Java application is a black box?
+
+[Holding black coffee mug, "I don't understand it, but I will"]
+
+Try using the JDK Flight Recorder!
+
+The JDK Flight Recorder, JFR, is a JVM tool for 
+
+collecting diagnostic and profiling data about a Java application
+
+And has low overhead, 
+
+so can even be used in production settings
+
+To use JFR set the StartFlightRecording JVM argument
+
+StartFlightRecording can take several arguments, 
+
+filename, disk, settings, and others.
+
+JFR recordings can be retrieved from a live application with jcmd
+
+Or when an application terminates by setting dumponexit to true
+
+Recordings can be viewed with tools like JDK Mission Control
+
+Which provides many options for inspecting the behavior of a Java application
+
+Happy coding!

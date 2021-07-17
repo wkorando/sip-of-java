@@ -54,14 +54,14 @@ There are a number of other runtime improvements and features that can also be t
 
   Java 8:
   
-	```
+	```java
 	Exception in thread "main" java.lang.NullPointerException
 		at NPEService.main(NPEService.java:7)
 	```
 
   Java 16:
   
-	```
+	```java
 	Exception in thread "main" java.lang.NullPointerException: 
 	Cannot invoke "String.length()" because "<local1>" is null
 	at NPEService.main(NPEService.java:7)
