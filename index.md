@@ -36,6 +36,8 @@ Learn how to take advantage of new runtime features and improved performance by 
 ## 009 - String Join
 Learn how to quickly and easily transform list of objects into strings with delimiters, prefixes, and suffixes using the JDK 8 Join APIs: [Link](009.md)
 
-
 ## 010 - Unix-Domain Socket Channels
 Learn how  to use Unix-Domain Socket Channels to improve inter-processor communication on the same host: [Link](010.md)
+
+## 011 - JDK Flight Recorder
+Learn how to use the JDK Flight Recorder (JFR) to collect diagnostic and profile data from Java applications: [Link](011.md)
