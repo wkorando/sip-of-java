@@ -1,6 +1,6 @@
-# JDK Flight Recorder
+# JDK Flight Recorder (JFR)
 
-* Incorporated in the JVM
+* Standard tool incorporated in the JVM
 
 * Used for collecting diagnostic and profiling data about a Java application
 

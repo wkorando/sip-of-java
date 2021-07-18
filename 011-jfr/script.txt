@@ -12,17 +12,17 @@ collecting diagnostic and profiling data about a Java application
 
 And has low overhead, 
 
-so can even be used in production settings
+so can even be used in production
 
-To use JFR set the StartFlightRecording JVM argument
+To use JFR set the "StartFlightRecording" JVM argument
 
 StartFlightRecording can take several arguments, 
 
-filename, disk, settings, and others.
+including; filename, disk, settings, and others.
 
-JFR recordings can be retrieved from a live application with jcmd
+JFR recordings can be retrieved from a live application with jcmd (J Command)
 
-Or when an application terminates by setting dumponexit to true
+Or when an application terminates by setting "dumponexit" to true
 
 Recordings can be viewed with tools like JDK Mission Control
 
