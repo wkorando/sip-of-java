@@ -1,6 +1,6 @@
 # JDK Flight Recorder 
 
-The JDK Flight Recorder, open sourced in JDK 11 ([JEP 328](https://openjdk.java.net/jeps/328)), is a lightweight JVM tool for collecting diagnostic and profiling data about a Java application. 
+The JDK Flight Recorder, open sourced in JDK 11 ([JEP 328](https://openjdk.java.net/jeps/328)), is a lightweight HotSpot JVM tool for collecting diagnostic and profiling data about a Java application and the HotSpot JVM. 
 
 ## Using JFR
 
@@ -68,14 +68,14 @@ jcmd <pid> JFR.dump name=<name>
 
 #### After Application Terminates
 
-JFR can also automatically generate a recording file on application exit by setting 1`dumponexit=true` with `-XX:StartFlightRecording`
+JFR can also automatically generate a recording file on application exit by setting 1 `dumponexit=true` with `-XX:StartFlightRecording`
 
 ## Analyzing JFR Recordings
 
 JFR recordings can be inspected with tools like [JDK Mission Control](https://www.oracle.com/java/technologies/jdk-mission-control.html).  
 
-JDK Mission Control offers many options for inspecting results; memory usage, I/O, GC behavior, and more, whcih can be seen here: 
+JDK Mission Control offers many options for inspecting results; memory usage, I/O, GC behavior, and more, which can be seen here: 
 
 ![Picture of the many views that JDK mission control offers for inspecting JFR recordings](jdk-mission-control-tabs.png)
 
-Happy Coding!
+Happy Coding!s
