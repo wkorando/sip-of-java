@@ -78,4 +78,12 @@ JDK Mission Control offers many options for inspecting results; memory usage, I/
 
 ![Picture of the many views that JDK mission control offers for inspecting JFR recordings](jdk-mission-control-tabs.png)
 
-Happy Coding!s
+## Further Learning
+
+Video: [Monitoring and Troubleshooting Tools in the JDK with Poonam Parhar](https://inside.java/2021/04/04/video-odl16-jdk-monitoring-troubleshooting-jdk/) <br/>
+
+Inside Java Podcast: [“JDK Flight Recorder” with Markus Grönlund](https://inside.java/2021/02/22/podcast-013/)
+
+More: [https://inside.java/tag/jfr](https://inside.java/tag/jfr)
+
+Happy Coding!
