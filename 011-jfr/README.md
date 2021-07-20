@@ -76,13 +76,15 @@ JFR recordings can be inspected with tools like [JDK Mission Control](https://ww
 
 JDK Mission Control offers many options for inspecting results; memory usage, I/O, GC behavior, and more, which can be seen here: 
 
-![Picture of the many views that JDK mission control offers for inspecting JFR recordings](jdk-mission-control-tabs.png)
+![Picture of the many views that JDK mission control offers for inspecting JFR recordings](images/jdk-mission-control-tabs.png)
 
 ## Further Learning
 
 Video: [Monitoring and Troubleshooting Tools in the JDK with Poonam Parhar](https://inside.java/2021/04/04/video-odl16-jdk-monitoring-troubleshooting-jdk/) <br/>
 
 Inside Java Podcast: [“JDK Flight Recorder” with Markus Grönlund](https://inside.java/2021/02/22/podcast-013/)
+
+Official Documentation: [JDK Mission Control](https://docs.oracle.com/en/java/javase/16/troubleshoot/diagnostic-tools.html#GUID-D38849B6-61C7-4ED6-A395-EA4BC32A9FD6)
 
 More: [https://inside.java/tag/jfr](https://inside.java/tag/jfr)
 
