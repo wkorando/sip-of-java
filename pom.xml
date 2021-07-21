@@ -24,6 +24,7 @@
 		<module>xxx-streams-updates</module>
 		<module>xxx-sealed-classes</module>
 		<module>xxx-record-projections</module>
+		<module>xxx-read-file-improvements</module>
 	</modules>
 
 </project>
