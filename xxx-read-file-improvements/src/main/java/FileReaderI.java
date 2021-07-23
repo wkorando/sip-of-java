@@ -5,31 +5,37 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class FileReaderI {
 	public static void main(String[] args) {
-		
-		record Project(LocalDate reportingPeriod, String projectNumber, String legacyProjectNumber, String city) {
-		}
-		List<Project> projectsList = new ArrayList<>();
-		String filename = args[0];
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 		Month currentMonth = Month.JUNE;
-		
-		
+		SortedMap<String, ElectricProject> projectsByCity = new TreeMap<>();
+		String filename = args[0];
+
 		try (BufferedReader br = new BufferedReader(new FileReader(new File(filename)))) {
 			String line = br.readLine();
-			
+
 			while (line != null) {
 				if (!line.startsWith("Reporting Period")) {
 					String[] values = line.split(",");
-					Project project = new Project(LocalDate.parse(values[0], DateTimeFormatter.ofPattern("M/dd/yy")),
-							values[1], values[2], values[3]);
-					if(project.reportingPeriod.getMonth().equals(currentMonth)) {
-						projectsList.add(project);
-					} else {
-						break;
+					if (LocalDate.parse(values[0], formatter).getMonth().equals(currentMonth)) {
+						try {
+							ElectricProject project = ElectricProject.map(values);
+							if (!projectsByCity.containsKey(project.city())) {
+								projectsByCity.put(project.city(), project);
+							} else {
+								ElectricProject existingProject = projectsByCity.get(project.city());
+								if (project.expectedKWhAnnualProduction()
+										.compareTo(existingProject.expectedKWhAnnualProduction()) > 0) {
+									projectsByCity.put(project.city(), project);
+								}
+							}
+						} catch (Exception e) {
+							// Do some cool stuff to handle errors
+						}
 					}
 				}
 				line = br.readLine();
@@ -37,7 +43,14 @@ public class FileReaderI {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		System.out.println(projectsList.size());
+
+		for (ElectricProject project : projectsByCity.values()) {
+			System.out.println("""
+					City: %s
+					Project Number: %s
+					Expected Output: %s
+					""".formatted(project.city(), project.projectNumber(),
+					project.expectedKWhAnnualProduction().toString()));
+		}
 	}
 }

@@ -1,9 +1,13 @@
 Hey Java developers,
 
-Reading files is difficult?
+Finding your self getting lost in a max of if statements and for loops when processing large files?
 
-Make it easier!
+[Where am I?!]
 
+Try using streams instead
 
+Stream, added in Java 8, and updated since then, provide many benefits when performing complex processing of large data sets
+
+In this example, to group, order, pr
 
 Happy coding!

@@ -1,10 +1,2 @@
-Reporting Period,Project Number,Legacy Project Number,City,,,,,,,,,,
-6/30/21,305,01001-00048,Babylon,,,,,,,,,,
-6/30/21,2011-188607-SLPR,,Syosset,,,,,,,,,,
-6/30/21,2011-157262-SLPR,,Bellport,,,,,,,,,,
-6/30/21,256419,,Queens,,,,,,,,,,
-5/30/21,2014-655036-Sola,,Babylon,,,,,,,,,,
-5/30/21,310687,,Babylon,,,,,,,,,,
-5/30/21,2014-648451-Sola,,Centereach,,,,,,,,,,
-5/30/21,2011-157191-SLPR,,Water Mill,,,,,,,,,,
-4/30/21,2013-636596-Sola,,Farmingdale,,,,,,,,,,
+Reporting Period,Project Number,Legacy Project Number,City,County,State,Zip Code,Sector,Program Type,Solicitation,Electric Utility,Purchase Type,Date Application Received,Date Completed,Project Status,Contractor,Primary Inverter Manufacturer,Primary Inverter Model Number,Total Inverter Quantity,Primary PV Module Manufacturer,PV Module Model Number,Total PV Module Quantity,Project Cost,$Incentive,Total Nameplate kW DC,Expected KWh Annual Production,Remote Net Metering,Affordable Solar,Community Distributed Generation,Green Jobs Green New York Participant,Georeference
+06/30/2021,0000000305,01001-00048,Williamson,Wayne,NY,14589,Non-Residential,Residential/Small Commercial,PON 1184,,,08/03/2003,06/23/2005,Complete,"Solar Works, Inc.",Fronius USA,IG 2500-LV,1,BP Solar,BP3125S,16,,,2.00,,,No,No,No,POINT (-77.175308 43.241518)

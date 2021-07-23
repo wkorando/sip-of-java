@@ -4,42 +4,56 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.function.Function;
+import java.util.TreeMap;
+import java.util.function.BiConsumer;
+import java.util.function.BinaryOperator;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class FileReaderII {
 	public static void main(String[] args) {
-
-		record Project(LocalDate reportingPeriod, String projectNumber, String legacyProjectNumber, String city) {
-		}
-		List<Project> projectsList = null;
-		String filename = args[0];
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 		Month currentMonth = Month.JUNE;
+		String filename = args[0];
 
-		Function<String, Stream<Project>> flatMapper = line -> {
+		BiConsumer<String, Consumer<ElectricProject>> retrieveResultsForCurrentMonth = (line, consumer) -> {
 			String[] values = line.split(",");
-			Project project = new Project(LocalDate.parse(values[0], DateTimeFormatter.ofPattern("M/dd/yy")), values[1],
-					values[2], values[3]);
-			return Stream.of(project);
+			if (LocalDate.parse(values[0], formatter).getMonth().equals(currentMonth)) {
+				try {
+					consumer.accept(ElectricProject.map(values));
+				} catch (Exception e) {
+					// Do some cool stuff to handle errors
+				}
+			}
 		};
 
-		Predicate<String> titleLinePredicate = line -> {
-			return !line.startsWith("Reporting Period");
+		Consumer<ElectricProject> printResults = project -> {
+			System.out.println("""
+					City: %s
+					Project Number: %s
+					Expected Output: %s
+					""".formatted(project.city(), project.projectNumber(),
+					project.expectedKWhAnnualProduction().toString()));
 		};
 
-		Predicate<Project> thisMonth = project -> {
-			return project.reportingPeriod.getMonth().equals(currentMonth);
+		Predicate<String> isTitleLine = line -> line.startsWith("Reporting Period");
+
+		BinaryOperator<ElectricProject> findBestProducingProject = (newProject, currentProject) -> {
+			if (newProject.expectedKWhAnnualProduction().compareTo(currentProject.expectedKWhAnnualProduction()) > 0) {
+				return newProject;
+			} else {
+				return currentProject;
+			}
 		};
 
 		try (Stream<String> lines = Files.lines(Path.of(filename))) {
-			projectsList = lines.filter(titleLinePredicate).flatMap(flatMapper).takeWhile(thisMonth).toList();
+			lines.filter(isTitleLine.negate()).mapMulti(retrieveResultsForCurrentMonth) //
+					.collect(Collectors.toMap(ElectricProject::city, p -> p, findBestProducingProject, TreeMap::new))
+					.values().stream().forEach(printResults);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		System.out.println(projectsList.size());
 	}
-
 }
