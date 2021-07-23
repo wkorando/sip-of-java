@@ -1,8 +1,4 @@
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.format.DateTimeFormatter;
-
+```java
 public record ElectricProject(LocalDate reportingPeriod, String projectNumber, String legacyProjectNumber, String city,
 		String county, String state, String zipCode, String sector, String programType, String solicitation,
 		String electricUtility, String purchaseType, LocalDate dateApplicationReceived, LocalDate dateCompleted,
@@ -43,3 +39,4 @@ public record ElectricProject(LocalDate reportingPeriod, String projectNumber, S
 				values[30]);
 	}
 }
+```

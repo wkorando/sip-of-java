@@ -1,13 +1,29 @@
 Hey Java developers,
 
-Finding your self getting lost in a max of if statements and for loops when processing large files?
+Getting lost in a maze of if statements and loops when processing large files?
 
 [Where am I?!]
 
-Try using streams instead
+been there, try using streams instead
 
-Stream, added in Java 8, and updated since then, provide many benefits when performing complex processing of large data sets
+Streams, added in Java 8, improve the experience of processing large data sets
 
-In this example, to group, order, pr
+Transforming deeply nested if, else, and loop hierachies into a simple pipeline 
+
+With streams we can do a simple skip of the title line
+
+Tokenize the values of a line and filter by date
+
+Added in Java 16, mapMulti allow for 0 to n returns for an input 
+
+Here being used for easy handling, when reading a row causes an error
+
+Collectors, come with many pre-configured options for the grouping and ordering of items in a stream
+
+Last we can handle the printing of the results, without a separate loop
+
+If working with ordered data sets, consider takeWhile
+
+Or dropWhile, both added in Java 9
 
 Happy coding!

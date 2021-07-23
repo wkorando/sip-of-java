@@ -1,19 +1,5 @@
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.format.DateTimeFormatter;
-import java.util.Comparator;
-import java.util.Optional;
-import java.util.TreeMap;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-public class FileReaderII {
+```java
+public class FileReaderII {public class FileReaderII {
 	public static void main(String[] args) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 		Month currentMonth = Month.JUNE;
@@ -55,3 +41,4 @@ public class FileReaderII {
 		}
 	}
 }
+```

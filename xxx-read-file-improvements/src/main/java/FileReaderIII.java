@@ -13,7 +13,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class FileReaderII {
+public class FileReaderIII {
 	public static void main(String[] args) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 		Month currentMonth = Month.JUNE;
@@ -45,7 +45,7 @@ public class FileReaderII {
 
 		try (Stream<String> lines = Files.lines(Path.of(filename))) {
 			lines.skip(titleLine) //
-					.map(s -> s.split(",")).filter(filterToCurrentMonth)//
+					.map(s -> s.split(",")).takeWhile(filterToCurrentMonth)//
 					.mapMulti(mapElectricProject) //
 					.collect(Collectors.groupingBy(ElectricProject::city, TreeMap::new,
 							Collectors.maxBy(compareExpectedKwhProduction) )) //
