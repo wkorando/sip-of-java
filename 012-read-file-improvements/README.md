@@ -1,8 +1,8 @@
 # Streams and File Reading Improvements
 
-Organizations often need to process formatted data files from clients, partners, or through internal processes. 
+Organizations often need to process formatted data files from clients, partners, or from data generated through internal processes. 
 
-Historically in Java these files were processed using imperative design constructs, if statements, loops, etc.. With Java 8 stream were introduced that could greatly simplify the design of this processing. Streams has also seen several updates since Java 8, that further improves this process.
+Historically in Java these files were processed using imperative design constructs, if statements, loops, etc., which when performing complex processing operations, could become difficult to understand. With Java 8 [streams](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/stream/Stream.html) were introduced that could greatly simplify the design of this processing. Streams has also seen several updates since Java 8, that further improves this process.
 
 ## Data Model
 
@@ -159,14 +159,28 @@ public class FileReaderII {public class FileReaderII {
 }
 ```
 
-### Skipping
+### Skipping elements
+
+In many formatted data files, the first line(s) are often title or metadata lines and are part of the rows to be processed. In imperative design skipping these lines would be done through an if check, or by adding an counter variable, and skipping a predetermined number of lines. Streams make this much easier with `skip(long)`, like used in the above example with: `.skip(titleLine)`.
 
 ### mapMulti
 
+Added in Java 16, `mapMulti()` ([JavaDoc](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/stream/Stream.html#mapMulti(java.util.function.BiConsumer))) allows the replacing of elements in a stream with 0 to n elements. In the above example, it is being used to more gracefully deal with the common issue of a read error. It can also be helpful in cases where data is across multiple lines, or the results need to be split up for some reason. 
+
 ### Grouping and Ordering
 
+When processing data, often there is a need to group or order the data. Like in this example of finding the highest kWh generating solar project for each city. Many pre-defined `Collectors` are available, like the above shown `groupBy` and `maxBy`. Many [other options are available](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/stream/Collectors.html), that cover most use cases. And defining your own [Collector](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/stream/Collector.html) is of course an option. 
 
 ## Other Streams Improvements
+
+Since being added Streams have been continuously improved upon with each release, easing usage, and better addressing use cases. 
+
+
+### Ordered and Infinite Data Sets
+
+With Java 9, streams better handled data from ordered data sets and/or infinite (or extremely large) data sets with `takeWhile()` and `dropWhile()`
+ 
+#### takeWhile() example
 
 ```java
 lines.skip(titleLine) //
@@ -176,6 +190,7 @@ lines.skip(titleLine) //
 				Collectors.maxBy(compareExpectedKwhProduction) )) //
 		.values().stream().map(Optional::get).forEach(printResults);
 ```
+#### dropWhile() example
 
 ```java
 lines.skip(titleLine) //
@@ -186,6 +201,18 @@ lines.skip(titleLine) //
 		.values().stream().map(Optional::get).forEach(printResults);
 ```
 
+### Collecting into a List
+
+Often after processing data through a stream, collecting the results into a `List` is needed. Previously with was done with `collect(Collectors.toList())`, but can now be more simply accomplished with `toList()` like below:
+
+```java
+List<ElectricProject> projects = lines.skip(titleLine) //
+		.map(s -> s.split(",")).dropWhile(filterToCurrentMonth)//
+		.mapMulti(mapElectricProject) //
+		.collect(Collectors.groupingBy(ElectricProject::city, TreeMap::new,
+				Collectors.maxBy(compareExpectedKwhProduction) )) //
+		.values().stream().map(Optional::get).toList();
+```
 
 ## Further Learning
 

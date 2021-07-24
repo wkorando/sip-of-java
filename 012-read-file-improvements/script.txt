@@ -2,8 +2,6 @@ Hey Java developers,
 
 Lost in a maze of if statements and loops when processing large files?
 
-[Where am I?!]
-
 been there, 
 
 try using streams instead
@@ -25,8 +23,6 @@ Being used here for handling when a mapping error occurs
 Collectors, can be used for grouping and ordering items in a stream
 
 Last we can handle the printing of the results with a forEach, instead needing a separate loop
-
-Streams have seen a few other updates
 
 With Java 16 returning a list can be done with .toList
 
