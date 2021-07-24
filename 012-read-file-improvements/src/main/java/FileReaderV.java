@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
-import java.util.List;
 import java.util.Optional;
 import java.util.TreeMap;
 import java.util.function.BiConsumer;
@@ -14,7 +13,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class FileReaderIII {
+public class FileReaderV {
 	public static void main(String[] args) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 		Month currentMonth = Month.JUNE;
@@ -45,12 +44,12 @@ public class FileReaderIII {
 				.equals(currentMonth);
 
 		try (Stream<String> lines = Files.lines(Path.of(filename))) {
-			List<ElectricProject> projects = lines.skip(titleLine) //
+			lines.skip(titleLine) //
 					.map(s -> s.split(",")).dropWhile(filterToCurrentMonth)//
 					.mapMulti(mapElectricProject) //
 					.collect(Collectors.groupingBy(ElectricProject::city, TreeMap::new,
 							Collectors.maxBy(compareExpectedKwhProduction) )) //
-					.values().stream().map(Optional::get).toList();
+					.values().stream().map(Optional::get).forEach(printResults);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -55,6 +55,12 @@ public record ElectricProject(LocalDate reportingPeriod, String projectNumber, S
 
 ## Imperative Data Processing
 
+In this imagined example, the goal of processing the retrieved data file is to find the highest producing solar project in every city. 
+
+Accomplishing this relatively simple task imperatively might look like below, which requires looping through the data twice, and several nested if/else statements. Indeed in this example, it gets up to five layers deep! 
+
+Which this example could be further refactored for [readability](https://github.com/wkorando/sip-of-java/blob/main/012-read-file-improvements/FileReaderIRefactored.md). As new requirements are added, imperative processes can become extremely difficult to follow, and subsequently modify and update.   
+
 ```java
 public class FileReaderI {
 	public static void main(String[] args) {
@@ -104,7 +110,9 @@ public class FileReaderI {
 }
 ```
 
-## Functional Porcessing with Streams
+## Functional Processing with Streams
+
+Accomplishing the same task functionally using Streams, looks like below. While the line count is similar to the imperative implementation above, streams does offer several distinct advantages, which will be covered below. 
 
 ```java
 public class FileReaderII {public class FileReaderII {
@@ -150,6 +158,13 @@ public class FileReaderII {public class FileReaderII {
 	}
 }
 ```
+
+### Skipping
+
+### mapMulti
+
+### Grouping and Ordering
+
 
 ## Other Streams Improvements
 

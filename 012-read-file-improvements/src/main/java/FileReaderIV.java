@@ -45,7 +45,7 @@ public class FileReaderIV {
 
 		try (Stream<String> lines = Files.lines(Path.of(filename))) {
 			lines.skip(titleLine) //
-					.map(s -> s.split(",")).dropWhile(filterToCurrentMonth)//
+					.map(s -> s.split(",")).takeWhile(filterToCurrentMonth)//
 					.mapMulti(mapElectricProject) //
 					.collect(Collectors.groupingBy(ElectricProject::city, TreeMap::new,
 							Collectors.maxBy(compareExpectedKwhProduction) )) //
