@@ -214,8 +214,8 @@ List<ElectricProject> projects = lines.skip(titleLine) //
 		.values().stream().map(Optional::get).toList();
 ```
 
-## Further Learning
+## Extra Learning
 
-Additional reading?
+Collectors in the Wild with José Paumard: [YouTube](https://www.youtube.com/watch?v=yddwA3458eo&list=PLxmvVTBGyuuf5ZsCaQDPw2CQCvRdQV5PW)
 
 Happy Coding!
