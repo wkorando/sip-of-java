@@ -1,0 +1,33 @@
+Hey Java developers,
+
+Need to search an input source for specific content?
+
+[Searching for something]
+
+Consider the Scanner class
+
+The Scanner class can handle many input sources; String, File, InputStream, and more
+
+Using findAll scanner will search the entire input source 
+
+and return the results as a stream of MatchResults 
+
+Search criteria can be a String literal or regex
+
+A pattern instance can also be used
+
+For more precise control there is findInLine and findInHorizon
+
+findInLine returns the first match in a line
+
+To check for more matches in a line, findInLine can be called again
+
+To move through the input source use hasNextLine and nextLine 
+
+nextLine, will return any skipped content as a String
+
+findInHorizon, behaves similar to findInLine, 
+
+but allows a specific search area to be defined
+
+Happy Coding!

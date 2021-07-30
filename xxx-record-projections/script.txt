@@ -1,12 +1,14 @@
 Hey Java developers,
 
-Excited for Java Records, but wondering where to use them in your application?
+Using JPA to manage your data layer and wondering how Java Records fit-in?
 
 [Comedy bit]
 
-Try using your records as projections
+Consider using records as projections for read operations
 
+JPA with Hibernate
 
+Spring Data Users
 
 
 Happy coding!

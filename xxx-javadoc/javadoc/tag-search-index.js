@@ -1,0 +1,1 @@
+tagSearchIndex = [{"l":"APR","h":"class AccountsPayableRecord","d":"common acronym for this class","u":"AccountsPayableRecord.html#APR"}];updateSearchResults();

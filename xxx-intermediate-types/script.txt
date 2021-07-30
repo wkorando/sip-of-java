@@ -1,0 +1,11 @@
+Hey Java developers,
+
+Getting worn out defining ... 
+
+
+consider creating intermediate types
+
+Non-Denotable Types
+
+
+Local Records
