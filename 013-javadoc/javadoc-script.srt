@@ -1,0 +1,116 @@
+﻿1
+00:00:00,866 --> 00:00:02,200
+Hey Java Developers
+
+2
+00:00:02,200 --> 00:00:03,166
+JavaDoc has se...
+
+3
+00:00:03,166 --> 00:00:04,066
+[snoring]
+
+4
+00:00:04,066 --> 00:00:06,066
+Please don't fall asleep yet! 
+
+5
+00:00:06,066 --> 00:00:09,166
+JavaDoc has seen a number of updates in recent releases,
+
+6
+00:00:09,166 --> 00:00:10,833
+improving its usability
+
+7
+00:00:10,833 --> 00:00:13,466
+Key among these changes was the addition of search
+
+8
+00:00:13,466 --> 00:00:15,033
+part of JDK 9
+
+9
+00:00:15,033 --> 00:00:16,800
+Search can be a great way of exploring
+
+10
+00:00:16,800 --> 00:00:19,800
+and discovering the API on official JavaDocs
+
+11
+00:00:19,800 --> 00:00:19,833
+Search is also available by default in all generated JavaDoc
+
+12
+00:00:19,833 --> 00:00:20,200
+Search is also available by default in all generated JavaDoc
+
+13
+00:00:20,200 --> 00:00:23,433
+Search is also available by default in all generated JavaDoc
+
+14
+00:00:23,433 --> 00:00:23,466
+Search is also available by default in all generated JavaDoc
+
+15
+00:00:23,466 --> 00:00:24,566
+Search is also available by default in all generated JavaDoc
+
+16
+00:00:24,566 --> 00:00:27,766
+Several tags have been added improving API definition:
+
+17
+00:00:27,766 --> 00:00:31,733
+Including Index, which can be used for defining domain terms and acronyms
+
+18
+00:00:31,733 --> 00:00:33,233
+Including Index, which can be used for defining domain terms and acronyms
+
+19
+00:00:33,233 --> 00:00:36,433
+Hidden, for API documentation you don't want published
+
+20
+00:00:36,433 --> 00:00:38,033
+Hidden, for API documentation you don't want published
+
+21
+00:00:38,033 --> 00:00:40,800
+SystemProperties, for system provided values
+
+22
+00:00:40,800 --> 00:00:42,566
+SystemProperties, for system provided values
+
+23
+00:00:42,566 --> 00:00:44,466
+
+
+24
+00:00:44,466 --> 00:00:47,433
+And tags for defining modules features and behavior
+
+25
+00:00:47,433 --> 00:00:47,700
+And tags for defining modules features and behavior
+
+26
+00:00:47,700 --> 00:00:49,133
+Also with JDK 9 
+
+27
+00:00:49,133 --> 00:00:51,900
+JavaDoc is generated in HTML 5 by default
+
+28
+00:00:51,900 --> 00:00:53,600
+improving its accessibility 
+
+29
+00:00:53,600 --> 00:00:55,900
+Happy Coding!
+

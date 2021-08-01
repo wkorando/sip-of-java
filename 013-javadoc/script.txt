@@ -1,10 +1,12 @@
 Hey Java developers,
 
-JavaDoc
+JavaDoc has seen
 
-[Me asleep]
+[snoring]
 
-Please don't fall asleep yet! JavaDoc has seen a number of updates in recent releases, improving its usability
+Please don't fall asleep yet! 
+
+JavaDoc has seen a number of updates in recent releases, improving its usability
 
 Key among these changes was the addition of search, part of JDK 9
 
@@ -12,9 +14,7 @@ Search can be a great way of exploring and discovering the API on official JavaD
 
 Search is also available by default in all generated JavaDoc
 
-Also with JDK 9 JavaDoc is generated in HTML 5 by default, improving its accessibility 
-
-Several tags have been added improving API definition:
+Several tags have been added improving API definition, including:
 
 Index, which can be used for defining domain terms and acronyms
 
@@ -24,6 +24,6 @@ SystemProperties, for system provided values
 
 And tags for defining modules features and behavior
 
-And more
+Also with JDK 9 JavaDoc is generated in HTML 5 by default, improving its accessibility 
 
 Happy Coding!
