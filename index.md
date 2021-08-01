@@ -44,3 +44,6 @@ Learn how to use the JDK Flight Recorder (JFR) to collect diagnostic and profile
 
 ## 012 - Read File and Streams Improvements
 Learn how to use Stream to improve processing large data sets: [Link](012.md)
+
+## 013 - JavaDoc
+Learn about some of the recent changes to JavaDoc and how they improve usability: [Link](013.md)
