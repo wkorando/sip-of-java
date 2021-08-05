@@ -1,4 +1,4 @@
-# Scanner Features
+# Scanner Input 
 
 * Handles I/O
 * Buffered

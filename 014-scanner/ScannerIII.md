@@ -7,7 +7,9 @@ String wordsAndNumbers = """
 		""";
 
 try (Scanner scanner = new Scanner(wordsAndNumbers)) {
-	scanner.findAll("[A-Za-z']+").map(MatchResult::group).forEach(System.out::println);
+	scanner.findAll(Pattern.compile("[A-Za-z']+"))
+		.map(MatchResult::group)
+		.forEach(System.out::println);
 }
 ```
 
