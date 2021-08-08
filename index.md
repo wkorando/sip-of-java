@@ -47,3 +47,6 @@ Learn how to use Stream to improve processing large data sets: [Link](012.md)
 
 ## 013 - JavaDoc
 Learn about some of the recent changes to JavaDoc and how they improve usability: [Link](013.md)
+
+## 014 - Scanner - Find
+Learn how to use the Scanner class to find content from an input source: [Link](014.md)
