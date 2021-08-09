@@ -22,11 +22,12 @@
 		<module>010-unix-sockets</module>
 		<module>011-jfr</module>
 		<module>012-read-file-improvements</module>
+		<module>013-javadoc</module>
+		<module>014-scanner</module>
 		<module>xxx-streams-updates</module>
-		<module>xxx-sealed-classes</module>
+		<module>xxx-new-api-javadoc</module>
+		<module>xxx-transfer-jmx</module>
 		<module>xxx-record-projections</module>
-		<module>xxx-javadoc</module>
-		<module>xxx-scanner</module>
 		<module>xxx-intermediate-types</module>
 	</modules>
 

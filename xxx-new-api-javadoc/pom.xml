@@ -9,8 +9,8 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>013-javadoc</artifactId>
-	<name>013-javadoc</name>
+	<artifactId>xxx-new-api-javadoc</artifactId>
+	<name>xxx-new-api-javadoc</name>
 	<packaging>jar</packaging>
 
 	<description>Demonstrating Javadoc and Javadoc improvements</description>

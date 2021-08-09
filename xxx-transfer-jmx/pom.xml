@@ -9,11 +9,11 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>013-javadoc</artifactId>
-	<name>013-javadoc</name>
+	<artifactId>xxx-transfer-jmx</artifactId>
+	<name>xxx-transfer-jmx</name>
 	<packaging>jar</packaging>
 
-	<description>Demonstrating Javadoc and Javadoc improvements</description>
+	<description>Demonstrating transfering JMX data over the wire</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
