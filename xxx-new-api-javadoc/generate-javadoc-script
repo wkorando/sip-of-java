@@ -1,0 +1,1 @@
+javadoc ../src/main/java/*.java --since 1.0,1.1,1.2
