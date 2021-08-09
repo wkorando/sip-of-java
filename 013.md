@@ -117,6 +117,6 @@ Also with JDK 9, JavaDoc is generated in HTML 5 by default. Improving accessibil
 
 Java 16 Specs: [https://docs.oracle.com/en/java/javase/16/docs/specs/javadoc/doc-comment-spec.html](https://docs.oracle.com/en/java/javase/16/docs/specs/javadoc/doc-comment-spec.html)
 
-Java 16 JavaDoc documentation: [https://docs.oracle.com/en/java/javase/16/javadoc/javadoc.html]https://docs.oracle.com/en/java/javase/16/javadoc/javadoc.html#GUID-9E6AB571-AB0F-4279-9BBF-C0AF83345BF0
+Java 16 JavaDoc documentation: [https://docs.oracle.com/en/java/javase/16/javadoc/javadoc.html](https://docs.oracle.com/en/java/javase/16/javadoc/javadoc.html#GUID-9E6AB571-AB0F-4279-9BBF-C0AF83345BF0)
 
 Happy Coding!
