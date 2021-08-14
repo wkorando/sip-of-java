@@ -1,0 +1,45 @@
+Hey Java developers,
+
+Excited for Java Records 
+
+but wondering where they fit in 
+
+if you are using JPA for data access?
+
+[Comedy bit]
+
+Consider using records as projections!
+
+Added in java 16, Records are transparent carriers of data, 
+
+and can be defined in a single line
+
+Because of the constraints on records, 
+
+are unsuitable as JPA entities, 
+
+but can be used as projections 
+
+If using straight JPA, 
+
+Records can be used with CriteriaBuilders, 
+
+TypedQueries
+
+And Native Queries
+
+Spring Data also supports records 
+
+If the record matches the field names of the tracked entity, 
+
+Spring data can automatically handle the mapping
+
+Alternatively, a JPA query can be defined
+
+Or a custom repo implementation 
+
+can be used to handle the mapping of the query results 
+
+to the record
+
+Happy coding!

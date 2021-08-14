@@ -1,1 +1,10 @@
-https://stuartmarks.wordpress.com/2020/04/14/scanner-is-a-weird-but-useful-beast/
+In JDK 17, it's possible to transfer recording data over JMX and dump on the local client. 
+
+    MBeanServerConnection conn = connect(host, port);
+    try (var rs = new RemoteRecordingStream(conn)) {
+      rs.onMetadata( me -> configure(rs, me.getConfigurations()));
+      rs.setMaxSize(100_000_000);
+      rs.startAsync();
+      Thread.sleep(60_000);
+      rs.dump(Path.of("local.jfr"));
+    }

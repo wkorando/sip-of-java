@@ -24,10 +24,11 @@
 		<module>012-read-file-improvements</module>
 		<module>013-javadoc</module>
 		<module>014-scanner</module>
+		<module>015-record-projections</module>
 		<module>xxx-streams-updates</module>
 		<module>xxx-new-api-javadoc</module>
 		<module>xxx-transfer-jmx</module>
-		<module>xxx-record-projections</module>
+		<module>xxx-teeing</module>
 		<module>xxx-intermediate-types</module>
 	</modules>
 
