@@ -3,8 +3,8 @@
 ```java
 public interface AdvocateRepo 
 	extends CrudRepository<AdvocateEntity, Integer> {
-	
-	Iterable<AdvocateRecord> findByRegion(String region);
+	Iterable<AdvocateRecord> 
+		findByRegion(String region);
 }
 ```
 
@@ -18,7 +18,7 @@ String region,
 int twitterFollowers) {}
 ```
 
-## Trackeed Entity:
+## Tracked Entity:
 ```
 public class AdvocateEntity {
 	@Id
