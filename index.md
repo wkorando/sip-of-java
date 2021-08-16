@@ -50,3 +50,6 @@ Learn about some of the recent changes to JavaDoc and how they improve usability
 
 ## 014 - Scanner - Find
 Learn how to use the Scanner class to find content from an input source: [Link](014.md)
+
+## 015 - Record Projections in JPA
+Learn how to use Records when using JPA: [Link](015.md)
