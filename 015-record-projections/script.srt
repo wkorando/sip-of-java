@@ -1,0 +1,180 @@
+﻿1
+00:00:00,666 --> 00:00:02,633
+Hey Java Developers
+
+2
+00:00:02,633 --> 00:00:03,900
+Excited for Records
+
+3
+00:00:03,900 --> 00:00:05,400
+[techno music]
+
+4
+00:00:05,400 --> 00:00:05,466
+Excited for Records
+
+5
+00:00:05,466 --> 00:00:07,100
+but wondering where they fit in 
+
+6
+00:00:07,100 --> 00:00:09,166
+if you are using JPA for data access
+
+7
+00:00:09,166 --> 00:00:09,366
+Considering using records as projections
+
+8
+00:00:09,366 --> 00:00:11,600
+Considering using records as projections
+
+9
+00:00:11,600 --> 00:00:13,366
+Added in Java 16
+
+10
+00:00:13,366 --> 00:00:15,900
+Records are transparent carriers of data
+
+11
+00:00:15,900 --> 00:00:17,900
+And can be defined in a single line
+
+12
+00:00:17,900 --> 00:00:18,133
+Because of the constraints on Records
+
+13
+00:00:18,133 --> 00:00:20,033
+Because of the constraints on Records
+
+14
+00:00:20,033 --> 00:00:22,466
+They are unsuitable as JPA entities
+
+15
+00:00:22,466 --> 00:00:24,466
+But can be used as projections
+
+16
+00:00:24,466 --> 00:00:26,233
+If using straight JPA
+
+17
+00:00:26,233 --> 00:00:27,766
+Records can be used with
+
+18
+00:00:27,766 --> 00:00:29,066
+CriteriaBuilders
+
+19
+00:00:29,066 --> 00:00:29,533
+CriteriaBuilders
+
+20
+00:00:29,533 --> 00:00:29,800
+TypedQuery(ies)
+
+21
+00:00:29,800 --> 00:00:31,033
+TypedQuery(ies)
+
+22
+00:00:31,033 --> 00:00:31,266
+TypedQuery(ies)
+
+23
+00:00:31,266 --> 00:00:32,600
+TypedQuery(ies)
+
+24
+00:00:32,600 --> 00:00:32,766
+TypedQuery(ies)
+
+25
+00:00:32,766 --> 00:00:34,500
+And NativeQuery(ies)
+
+26
+00:00:34,500 --> 00:00:34,933
+And NativeQuery(ies)
+
+27
+00:00:34,933 --> 00:00:36,033
+And NativeQuery(ies)
+
+28
+00:00:36,033 --> 00:00:38,066
+Spring Data also supports Records
+
+29
+00:00:38,066 --> 00:00:38,300
+Spring Data also supports Records
+
+30
+00:00:38,300 --> 00:00:38,466
+If the fields of the Records match the field names of the tracked entity
+
+31
+00:00:38,466 --> 00:00:40,266
+If the fields of the Records match 
+
+32
+00:00:40,266 --> 00:00:42,266
+the field names of the tracked entity
+
+33
+00:00:42,266 --> 00:00:44,766
+Spring Data can automatically handle the mapping
+
+34
+00:00:44,766 --> 00:00:44,933
+Spring Data can automatically handle the mapping
+
+35
+00:00:44,933 --> 00:00:45,233
+Alternatively a JPA query can be defined
+
+36
+00:00:45,233 --> 00:00:45,300
+Spring Data can automatically handle the mapping
+
+37
+00:00:45,300 --> 00:00:48,566
+Alternatively a JPA query can be defined
+
+38
+00:00:48,566 --> 00:00:48,700
+Or a custom repo can be used to 
+
+39
+00:00:48,700 --> 00:00:51,800
+Or a custom repo can be used to 
+
+40
+00:00:51,800 --> 00:00:52,733
+handle the mapping of the query results to the record
+
+41
+00:00:52,733 --> 00:00:54,700
+handle the mapping of the query results to the record
+
+42
+00:00:54,700 --> 00:00:55,233
+handle the mapping of the query results to the record
+
+43
+00:00:55,233 --> 00:00:55,433
+Happy Coding!
+
+44
+00:00:55,433 --> 00:00:55,666
+Happy Coding!
+
+45
+00:00:55,666 --> 00:00:57,032
+Happy Coding!
+
