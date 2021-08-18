@@ -1,0 +1,37 @@
+Hey Java developers,
+
+Need to parse an input source? 
+
+Consider using the tokenize API part of the Scanner class
+
+The Scanner class can handle many input sources; String, File, InputStream, and more
+
+To tokenize the input source 
+
+A regex can be provided to Scanner as a String, or as a Pattern, 
+
+to define the delimiter
+
+Processing the tokens can be done as a stream with, .tokens()
+
+Or done as loop with hasNext and next 
+
+Scanner also provides hasNext and next for the types; 
+
+Int, Long, and Short, and others 
+
+allowing for automatic detection and conversion to those types
+
+Scanner can take a locale, 
+
+allowing for easy localization of data
+
+Like here treating the final value in the line 
+
+as a String when used with the US Locale
+
+But as a numeric, 
+
+when used with the German Locale
+
+Happy coding!

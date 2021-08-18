@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.file.Files;
 
-public class UnixSocketServer {
+public class ClassSerializationServer {
 
     public static void main(String[] args) throws Exception {
         var address = UnixDomainSocketAddress.of("/mnt/server");
