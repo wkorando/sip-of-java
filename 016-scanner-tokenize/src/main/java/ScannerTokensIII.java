@@ -12,11 +12,16 @@ public class ScannerTokensIII {
 				""";
 
 		try (Scanner scanner = new Scanner(advocates).useDelimiter("[,\n]+")) {
+			int i = 0;
 			while (scanner.hasNext()) {
+				i++;
 				if (scanner.hasNextInt()) {
-					System.out.println(scanner.nextInt() * 2);
+					System.out.print(scanner.nextInt() * 2);
 				} else {
-					System.out.println(scanner.next());
+					System.out.print(scanner.next() + " ");
+				}
+				if (i % 4 == 0) {
+					System.out.print("\n");
 				}
 			}
 		}

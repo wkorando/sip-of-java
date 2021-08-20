@@ -1,0 +1,148 @@
+﻿1
+00:00:00,633 --> 00:00:02,066
+Hey Java Developers,
+
+2
+00:00:02,066 --> 00:00:04,933
+Need to parse an input source?
+
+3
+00:00:04,933 --> 00:00:07,266
+Consider using the tokenize API
+
+4
+00:00:07,266 --> 00:00:08,866
+part of the Scanner class
+
+5
+00:00:08,866 --> 00:00:08,966
+The Scanner class can handle many input sources
+
+6
+00:00:08,966 --> 00:00:11,566
+The Scanner class can handle many input sources
+
+7
+00:00:11,566 --> 00:00:13,833
+String, File, InputStream, and more
+
+8
+00:00:13,833 --> 00:00:15,533
+To tokenize an input source 
+
+9
+00:00:15,533 --> 00:00:18,033
+A regex can be provided to Scanner as
+
+10
+00:00:18,033 --> 00:00:20,766
+a String, or as a Pattern, to define the delimiter
+
+11
+00:00:20,766 --> 00:00:24,500
+Processing the tokens can be done as a stream with, .tokens()
+
+12
+00:00:24,500 --> 00:00:25,766
+Processing the tokens can be done as a stream with, .tokens()
+
+13
+00:00:25,766 --> 00:00:25,800
+Processing the tokens can be done as a stream with, .tokens()
+
+14
+00:00:25,800 --> 00:00:28,400
+Or done as loop with hasNext and next
+
+15
+00:00:28,400 --> 00:00:28,500
+Or done as loop with hasNext and next
+
+16
+00:00:28,500 --> 00:00:29,133
+Or done as loop with hasNext and next
+
+17
+00:00:29,133 --> 00:00:32,933
+Scanner also provides hasNext() and next() methods
+
+18
+00:00:32,933 --> 00:00:35,833
+For the types int, long boolean, double, and others
+
+19
+00:00:35,833 --> 00:00:38,866
+Allowing for checking and conversion to those types
+
+20
+00:00:38,866 --> 00:00:39,700
+Allowing for checking and conversion to those types
+
+21
+00:00:39,700 --> 00:00:40,833
+Allowing for checking and conversion to those types
+
+22
+00:00:40,833 --> 00:00:42,433
+Scanner can take a locale,
+
+23
+00:00:42,433 --> 00:00:44,400
+allowing for easy localization of data
+
+24
+00:00:44,400 --> 00:00:44,433
+allowing for easy localization of data
+
+25
+00:00:44,433 --> 00:00:45,166
+allowing for easy localization of data
+
+26
+00:00:45,166 --> 00:00:45,233
+allowing for easy localization of data
+
+27
+00:00:45,233 --> 00:00:47,233
+Like here treating the final value in the line
+
+28
+00:00:47,233 --> 00:00:48,633
+as a String when used with the US Locale
+
+29
+00:00:48,633 --> 00:00:48,666
+as a String when used with the US Locale
+
+30
+00:00:48,666 --> 00:00:49,733
+as a String when used with the US Locale
+
+31
+00:00:49,733 --> 00:00:50,866
+as a String when used with the US Locale
+
+32
+00:00:50,866 --> 00:00:51,200
+as a String when used with the US Locale
+
+33
+00:00:51,200 --> 00:00:51,566
+But as a numeric, 
+
+34
+00:00:51,566 --> 00:00:51,733
+But as a numeric, 
+
+35
+00:00:51,733 --> 00:00:52,400
+But as a numeric, 
+
+36
+00:00:52,400 --> 00:00:55,233
+when used with the German Locale
+
+37
+00:00:55,233 --> 00:00:57,033
+Happy Coding!
+

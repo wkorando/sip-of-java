@@ -16,11 +16,11 @@ Processing the tokens can be done as a stream with, .tokens()
 
 Or done as loop with hasNext and next 
 
-Scanner also provides hasNext and next for the types; 
+Scanner also provides hasNext and next methods for the types; 
 
-Int, Long, and Short, and others 
+Int, Long, Boolean, Double, and others
 
-allowing for automatic detection and conversion to those types
+allowing for checking and conversion to those types
 
 Scanner can take a locale, 
 
