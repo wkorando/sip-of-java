@@ -2,17 +2,14 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 
-public class PersonClass implements Serializable {
+public class MessageClass implements Serializable {
 
-	private int id;
-	private String firstName;
-	private String lastName;
+	private String message;
 
-	public PersonClass(String firstName, String lastName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
 
+	
+	
+	
 	private Runnable command = new Runnable() {
 
 		@Override
