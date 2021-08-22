@@ -53,3 +53,6 @@ Learn how to use the Scanner class to find content from an input source: [Link](
 
 ## 015 - Record Projections in JPA
 Learn how to use Records when using JPA: [Link](015.md)
+
+## 016 - Scanner - Tokenize
+Learn how to use the Scanner class to tokenize and input source: [Link](016.md)
