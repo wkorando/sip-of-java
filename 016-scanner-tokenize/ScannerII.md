@@ -1,7 +1,7 @@
 ```java
 String advocates = """
 		Billy,Korando,NA,2600
-		David,Delabasse,EMEA,8522
+		David,Delabassée,EMEA,8522
 		Denys,Makogon,EMEA,233
 		José,Paumard,EMEA,6131
 		Nicolai,Parlog,EMEA,12400

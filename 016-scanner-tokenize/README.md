@@ -1,9 +1,9 @@
 # Scanner Tokenize
 
-[Code](https://github.com/wkorando/sip-of-java/016-scaner-tokenize) - [Video]() - [Script](https://github.com/wkorando/sip-of-java/016-scaner-tokenize/script.srt)
+[Code](https://github.com/wkorando/sip-of-java/tree/main/016-scanner-tokenize) - [Video](https://youtu.be/wyL6o2mYKlM) - [Script](https://github.com/wkorando/sip-of-java/blob/main/016-scanner-tokenize/script.srt)
 
 
-The Scanner API, initially introduced in JDK 5, and having received updates in subsequent JDK releases provides an easy and accessible way to parse and tokenize and input source. 
+The Scanner API, initially introduced in JDK 5, and having received updates in subsequent JDK releases provides an easy and accessible way to parse and tokenize an input source. 
 
 
 ## Scanner Input Sources
@@ -28,7 +28,7 @@ The parsed data can be processed as a `Stream<String>` with `tokens()` like in t
 ```java
 String advocates = """
 		Billy,Korando,NA,2600
-		David,Delabasse,EMEA,8522
+		David,Delabassée,EMEA,8522
 		Denys,Makogon,EMEA,233
 		José,Paumard,EMEA,6131
 		Nicolai,Parlog,EMEA,12400
@@ -56,7 +56,7 @@ The data can also be processed in a loop using `hasNext()` and `next()`:
 ```java
 String advocates = """
 		Billy,Korando,NA,2600
-		David,Delabasse,EMEA,8522
+		David,Delabassée,EMEA,8522
 		Denys,Makogon,EMEA,233
 		José,Paumard,EMEA,6131
 		Nicolai,Parlog,EMEA,12400
@@ -91,7 +91,7 @@ So in this example the final value in the line is converted to an Int type and c
 ```java
 String advocates = """
 		Billy,Korando,NA,2600
-		David,Delabasse,EMEA,8522
+		David,Delabassée,EMEA,8522
 		Denys,Makogon,EMEA,233
 		José,Paumard,EMEA,6131
 		Nicolai,Parlog,EMEA,12400
@@ -114,7 +114,7 @@ try (Scanner scanner = new Scanner(advocates)
 
 ```
 Billy Korando NA 5200
-David Delabasse EMEA 17044
+David Delabassée EMEA 17044
 Denys Makogon EMEA 466
 José Paumard EMEA 12262
 Nicolai Parlog EMEA 24800
@@ -122,12 +122,12 @@ Nicolai Parlog EMEA 24800
 
 ## Localization
 
-Scanner also allows for easy localization of data by passing in a `Locale` to `useLocale()`. In the below example the final value in thel ine is treated as a String with the `Locale.US`, as "." is only used as a decimal point in the US, but treated as a Integer with the `Locale.Germany` because "." is used like a "," in Germany:
+Scanner also allows for easy localization of data by passing in a `Locale` to `useLocale()`. In the below example the final value in the line is treated as a String with the `Locale.US`, as "." is only used as a decimal point in the US, but treated as a Integer with the `Locale.Germany` because "." is used to denote thousands/between every three integers in a number:
 
 ```java
 String advocates = """
 		Billy,Korando,NA,2.600
-		David,Delabasse,EMEA,8.522
+		David,Delabassée,EMEA,8.522
 		Denys,Makogon,EMEA,233
 		José,Paumard,EMEA,6.131
 		Nicolai,Parlog,EMEA,12.400
@@ -178,7 +178,7 @@ try (Scanner scanner = new Scanner(advocates)
 US Locale
 
 Billy Korando NA 2.600 
-David Delabasse EMEA 8.522 
+David Delabassée EMEA 8.522 
 Denys Makogon EMEA 466
 José Paumard EMEA 6.131 
 Nicolai Parlog EMEA 12.400 
@@ -186,7 +186,7 @@ Nicolai Parlog EMEA 12.400
 Germany Locale
 
 Billy Korando NA 5200
-David Delabasse EMEA 17044
+David Delabassée EMEA 17044
 Denys Makogon EMEA 466
 José Paumard EMEA 12262
 Nicolai Parlog EMEA 24800
@@ -196,6 +196,6 @@ Nicolai Parlog EMEA 24800
 ## Further Reading
 
 * Scanner is a Weird but Useful Beast, by Sutart Marks: [https://stuartmarks.wordpress.com/2020/04/14/scanner-is-a-weird-but-useful-beast/](https://stuartmarks.wordpress.com/2020/04/14/scanner-is-a-weird-but-useful-beast/)
-* Scanner JDK 16 JavaDoc - [https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/Scanner.html](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/Scanner.html)
+* Scanner JDK 16 Javadoc - [https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/Scanner.html](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/util/Scanner.html)
 
 Happy Coding!

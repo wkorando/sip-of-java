@@ -1,7 +1,7 @@
 ## Prased Input
 ```
 Billy,Korando,NA,2.600
-David,Delabasse,EMEA,8.522
+David,Delabassée,EMEA,8.522
 Denys,Makogon,EMEA,233
 José,Paumard,EMEA,6.131
 Nicolai,Parlog,EMEA,12.400
@@ -12,7 +12,7 @@ Nicolai,Parlog,EMEA,12.400
 US Locale
 
 Billy Korando NA 2.600 
-David Delabasse EMEA 8.522 
+David Delabassée EMEA 8.522 
 Denys Makogon EMEA 466
 José Paumard EMEA 6.131 
 Nicolai Parlog EMEA 12.400 
