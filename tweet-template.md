@@ -1,9 +1,11 @@
-Hey #Java Developers, ☕️
+Hey #Java Developers, 
 
-Find yourself confused because you can't understand some code you wrote a month ago? 🤔
+Here's your Monday #SipOfJava!
 
-Remember to document it next time with JavaDoc, which has also seen some big improvements in recent releases! 📝 
+<problem>
 
-Article: https://wkorando.github.io/sip-of-java/013.html
+<solution>
+
+Article: https://wkorando.github.io/sip-of-java/###.html
 
 Happy Coding!

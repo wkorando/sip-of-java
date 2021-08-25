@@ -1,21 +1,23 @@
 Hey Java developers,
 
-TCP/IP connections slowing down your intra-host communication?
+Enjoying Streams since their initial release in Java 8, but running into the occasional tough point?
 
 [Old school modem tone and me look bored and frustrated in the background]
 
-Consider switching to unix-domain socket channels added in Java 16! 
+Streams and its supporting types have seen several updates in recent releases
 
-To setup a Unix-domain socket, on the "server" define a path using the system filepath, create a UnixDomainSocketAddress, open a ServerSocketChannel using the Unix protocol, bind the address, and set the channel to accept connections
+improving usability
 
-On the "client" side, the steps are similar, but instead you will connect to the channel
+let's take a look at a few key changes
 
-Unix-domain sockets improve security, as applications don't need to accept remote connections for intra-host communication and allow for OS enforced filesystem controls
+With Java 12 Collectors Interface added teeing
 
-They also offer faster setup and higher throughput than TCP/IP connections
+This can be used to combine the result of two streams, into one stream
 
-Unix-domain sockets can be used for communication between containers using shared volumes
+OfNullable
 
-And even work on Windows 10 and Windows Server 2019
+Iterate
+
+Not
 
 Happy coding!
