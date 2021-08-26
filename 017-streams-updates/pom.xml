@@ -9,8 +9,8 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>xxx-soj-streams-updates</artifactId>
-	<name>xxx-soj-streams-updates</name>
+	<artifactId>017-soj-streams-updates</artifactId>
+	<name>017-soj-streams-updates</name>
 	<packaging>jar</packaging>
 
 	<description>Demonstrating Unix Sockets</description>
@@ -22,5 +22,4 @@
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 	</properties>
-
 </project>

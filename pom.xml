@@ -26,7 +26,7 @@
 		<module>014-scanner</module>
 		<module>015-record-projections</module>
 		<module>016-scanner-tokenize</module>
-		<module>xxx-streams-updates</module>
+		<module>017-streams-updates</module>
 		<module>xxx-new-api-javadoc</module>
 		<module>xxx-transfer-jmx</module>
 		<module>xxx-teeing</module>

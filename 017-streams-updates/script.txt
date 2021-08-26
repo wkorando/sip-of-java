@@ -1,0 +1,39 @@
+Hey Java developers,
+
+Enjoying Streams since Java 8, 
+
+but finding some holes in its functionality?
+
+[ ]
+
+Streams and its supporting types 
+
+have seen several updates in recent releases
+
+let's take a look at a few key changes
+
+Teeing added to Collectors in Java 12   
+
+Allows the results of two downstream collectors to be merged
+
+Predicate was updated in Java 11 with the static not 
+
+allowing for easier definition of a negation predicate 
+
+ofNullable added in Java 9, 
+
+provides null safety when processing a single item stream, 
+
+returning the value if non-null, 
+
+or an empty stream if the passed in value is null
+
+iterate was also updated with java 9, 
+
+allowing for a predicate to be provided
+
+which functions as a hasNext 
+
+and is checked before executing the "next" UnaryOperator
+
+Happy coding!
