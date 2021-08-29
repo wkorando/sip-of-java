@@ -1,5 +1,7 @@
 # Streams Post Java 8 Updates
 
+[Code](https://github.com/wkorando/sip-of-java/tree/main/017-streams-updates) - Video - [Script](https://github.com/wkorando/sip-of-java/blob/main/017-streams-updates/script.srt)
+
 Since their initial release with Java 8, Streams, and supporting classes including; Predicate and Collectors, have continued to see updates improving usability and helping to fill in functionality gaps. Let's take a look at a few key changes.
 
 ## Collectors.teeing
