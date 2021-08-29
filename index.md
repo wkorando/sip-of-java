@@ -57,5 +57,5 @@ Learn how to use Records when using JPA: [Link](015.md)
 ## 016 - Scanner - Tokenize
 Learn how to use the Scanner class to tokenize and input source: [Link](016.md)
 
-## 016 - Streams - Post-Java 8 Updates
+## 017 - Streams - Post-Java 8 Updates
 Learn how Streams and its supporting types have been updated post-Java 8 to fill in functionality gaps and improve usability: [Link](017.md)
