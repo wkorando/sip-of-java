@@ -34,27 +34,27 @@ public class ClassSerializationServer {
 	}
 
 	
-	static class MessageClass implements Serializable {
-
-		private static final long serialVersionUID = 1L;
-		private String message;
-
-		private MessageClass() throws OperationNotSupportedException {
-			throw new OperationNotSupportedException();
-		}
-		
-		public MessageClass(String message) {
-			if (message == null || message.isEmpty()) {
-				throw new IllegalArgumentException("Message cannot be null or empty!");
-			}
-			this.message = message;
-		}
-		
-		@Override
-		public String toString() {
-			return message;
-		}
-	}
+//	static class MessageClass implements Serializable {
+//
+//		private static final long serialVersionUID = 1L;
+//		private String message;
+//
+//		private MessageClass() throws OperationNotSupportedException {
+//			throw new OperationNotSupportedException();
+//		}
+//		
+//		public MessageClass(String message) {
+//			if (message == null || message.isEmpty()) {
+//				throw new IllegalArgumentException("Message cannot be null or empty!");
+//			}
+//			this.message = message;
+//		}
+//		
+//		@Override
+//		public String toString() {
+//			return message;
+//		}
+//	}
 	
 	static class SerializationFilter implements ObjectInputFilter {
 

@@ -1,6 +1,0 @@
-## Teeing
-
-```java
-```
-
-## Output

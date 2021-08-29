@@ -1,0 +1,128 @@
+﻿1
+00:00:00,766 --> 00:00:02,066
+Hey Java Developers
+
+2
+00:00:02,066 --> 00:00:03,900
+Enjoying Stream Since Java 8?
+
+3
+00:00:03,900 --> 00:00:07,866
+But finding some holes in its functionality
+
+4
+00:00:07,866 --> 00:00:09,600
+Streams and its supporting types
+
+5
+00:00:09,600 --> 00:00:12,000
+have seen several updates in recent releases,
+
+6
+00:00:12,000 --> 00:00:13,333
+Filling in some of those holes.
+
+7
+00:00:13,333 --> 00:00:15,933
+Let's take a look at a few key changes
+
+8
+00:00:15,933 --> 00:00:18,500
+Teeing added to Collectors in Java 12
+
+9
+00:00:18,500 --> 00:00:22,066
+Allows the results of two downstream collectors to be merged
+
+10
+00:00:22,066 --> 00:00:22,200
+Predicate was updated in Java 11 with the static not 
+
+11
+00:00:22,200 --> 00:00:24,566
+In this example retrieving the minim
+
+12
+00:00:24,566 --> 00:00:26,133
+and maximum values
+
+13
+00:00:26,133 --> 00:00:27,033
+from the stream
+
+14
+00:00:27,033 --> 00:00:27,366
+from the stream
+
+15
+00:00:27,366 --> 00:00:30,400
+Predicate was updated in Java 11 with the static not 
+
+16
+00:00:30,400 --> 00:00:32,233
+Allowing for easier definition
+
+17
+00:00:32,233 --> 00:00:33,533
+of a negation predicate 
+
+18
+00:00:33,533 --> 00:00:33,800
+of a negation predicate 
+
+19
+00:00:33,800 --> 00:00:35,966
+ofNullable added in Java 9, 
+
+20
+00:00:35,966 --> 00:00:37,433
+provides null safety,
+
+21
+00:00:37,433 --> 00:00:39,633
+when processing a single item stream,
+
+22
+00:00:39,633 --> 00:00:41,566
+returning the value if non-null, 
+
+23
+00:00:41,566 --> 00:00:44,566
+or an empty stream if the passed in value is null
+
+24
+00:00:44,566 --> 00:00:45,000
+or an empty stream if the passed in value is null
+
+25
+00:00:45,000 --> 00:00:47,466
+iterate was also updated with java 9, 
+
+26
+00:00:47,466 --> 00:00:49,766
+allowing for a predicate to be provided
+
+27
+00:00:49,766 --> 00:00:51,933
+which functions as a "hasNext"
+
+28
+00:00:51,933 --> 00:00:52,766
+and is checked before
+
+29
+00:00:52,766 --> 00:00:55,066
+executing the "next" UnaryOperator
+
+30
+00:00:55,066 --> 00:00:55,233
+Happy Coding!
+
+31
+00:00:55,233 --> 00:00:55,700
+Happy Coding!
+
+32
+00:00:55,700 --> 00:00:57,033
+Happy Coding!
+

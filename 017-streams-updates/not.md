@@ -1,6 +1,0 @@
-# not
-
-```java
-```
-
-## Output
