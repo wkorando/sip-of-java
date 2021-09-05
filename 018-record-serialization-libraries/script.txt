@@ -1,0 +1,45 @@
+Hey Java developers,
+
+Want to start using records 
+
+But unsure about compatibility 
+
+with your serialization library?
+
+[ ]
+
+Let's take a look at how 
+
+three popular serialization libraries 
+
+are supporting Records. 
+
+Jackson began offering official support for Records with 2.12.0
+
+Jackson supports records of any visibility, 
+
+and even supports local records
+
+Gson as of 2.8.8, 
+
+only offers limited Record support
+
+and official support is not on the roadmap
+
+Top level and inner classes can be serialized
+
+However deserialization requires 
+
+defining a JsonDeserializer
+
+Local records are not supported
+
+For Moshi official support for Records
+
+Should be part of their next release
+
+Records will need to be public,
+
+and local records are also not supported
+
+Happy coding!

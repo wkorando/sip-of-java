@@ -27,6 +27,7 @@
 		<module>015-record-projections</module>
 		<module>016-scanner-tokenize</module>
 		<module>017-streams-updates</module>
+		<module>018-record-serialization-libraries</module>
 		<module>xxx-new-api-javadoc</module>
 		<module>xxx-transfer-jmx</module>
 		<module>xxx-intermediate-types</module>

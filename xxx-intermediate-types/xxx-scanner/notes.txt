@@ -1,3 +1,0 @@
-Jose records: https://deploy-preview-89--javasite.netlify.app/learn/32_records/01_records.html
-
-Non-Denotable types: https://openjdk.java.net/projects/amber/LVTIstyle.html
